@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Linkedin, Twitter, Mail } from 'lucide-react';
+import { Linkedin, Twitter, Mail } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <Shield className="h-8 w-8 text-gold-400" />
+              <img src="/logo-picture_CHaM3jFR.png" alt="SoftHire Logo" className="h-8 w-auto" />
               <span className="text-2xl font-bold">SoftHire</span>
             </div>
             <p className="text-navy-300 mb-6 max-w-md">
