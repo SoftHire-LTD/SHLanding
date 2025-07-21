@@ -26,7 +26,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-navy-50">
+    <section id="about" className="py-20 bg-navy-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-navy-900 mb-4">
@@ -42,7 +42,7 @@ const About = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {values.map((value, index) => (
             <div key={index} className="text-center">
-              <div className="bg-gold-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-gold-200 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <value.icon className="h-8 w-8 text-navy-700" />
               </div>
               <h3 className="text-xl font-bold text-navy-900 mb-2">{value.title}</h3>
@@ -51,7 +51,7 @@ const About = () => {
           ))}
         </div>
 
-        <div className="bg-white rounded-2xl p-8 md:p-12 shadow-sm border border-gold-100">
+        <div className="bg-white rounded-2xl p-8 md:p-12 shadow-sm border border-gold-200">
           <div className="max-w-4xl mx-auto text-center">
             <h3 className="text-2xl md:text-3xl font-bold text-navy-900 mb-6">
               Why Choose SoftHire?

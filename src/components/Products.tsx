@@ -44,14 +44,14 @@ const Products = () => {
 
         <div className="grid lg:grid-cols-2 gap-8">
           {products.map((product, index) => (
-            <div key={index} className="bg-gold-50 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300 border border-gold-100">
+            <div key={index} className="bg-gold-100 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300 border border-gold-200">
               <div className="flex items-center mb-6">
-                <div className="bg-navy-100 p-3 rounded-lg mr-4">
+                <div className="bg-navy-200 p-3 rounded-lg mr-4">
                   <product.icon className="h-8 w-8 text-navy-700" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-navy-900">{product.title}</h3>
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gold-200 text-navy-800 mt-2">
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gold-300 text-navy-800 mt-2">
                     <Clock className="h-4 w-4 mr-1" />
                     {product.status}
                   </span>

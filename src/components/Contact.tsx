@@ -42,7 +42,7 @@ const Contact = () => {
             
             <div className="space-y-6">
               <div className="flex items-center space-x-4">
-                <div className="bg-gold-100 p-3 rounded-lg">
+                <div className="bg-gold-200 p-3 rounded-lg">
                   <Mail className="h-6 w-6 text-navy-700" />
                 </div>
                 <div>
@@ -52,7 +52,7 @@ const Contact = () => {
               </div>
 
               <div className="flex items-center space-x-4">
-                <div className="bg-gold-100 p-3 rounded-lg">
+                <div className="bg-gold-200 p-3 rounded-lg">
                   <Phone className="h-6 w-6 text-navy-700" />
                 </div>
                 <div>
@@ -62,7 +62,7 @@ const Contact = () => {
               </div>
 
               <div className="flex items-center space-x-4">
-                <div className="bg-gold-100 p-3 rounded-lg">
+                <div className="bg-gold-200 p-3 rounded-lg">
                   <MapPin className="h-6 w-6 text-navy-700" />
                 </div>
                 <div>
@@ -72,7 +72,7 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="mt-12 p-6 bg-gold-50 rounded-xl border border-gold-200">
+            <div className="mt-12 p-6 bg-gold-100 rounded-xl border border-gold-300">
               <h4 className="font-semibold text-navy-900 mb-3">Stay Updated</h4>
               <p className="text-navy-600 mb-4">
                 Be the first to know when our products launch. Join our mailing list for updates 
@@ -97,7 +97,7 @@ const Contact = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gold-300 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-transparent transition-colors"
+                  className="w-full px-4 py-3 border border-gold-400 rounded-lg focus:ring-2 focus:ring-navy-600 focus:border-transparent transition-colors"
                   required
                 />
               </div>
@@ -112,7 +112,7 @@ const Contact = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gold-300 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-transparent transition-colors"
+                  className="w-full px-4 py-3 border border-gold-400 rounded-lg focus:ring-2 focus:ring-navy-600 focus:border-transparent transition-colors"
                   required
                 />
               </div>
@@ -127,7 +127,7 @@ const Contact = () => {
                   name="company"
                   value={formData.company}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gold-300 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-transparent transition-colors"
+                  className="w-full px-4 py-3 border border-gold-400 rounded-lg focus:ring-2 focus:ring-navy-600 focus:border-transparent transition-colors"
                 />
               </div>
 
@@ -141,7 +141,7 @@ const Contact = () => {
                   rows={4}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gold-300 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-transparent transition-colors resize-none"
+                  className="w-full px-4 py-3 border border-gold-400 rounded-lg focus:ring-2 focus:ring-navy-600 focus:border-transparent transition-colors resize-none"
                   placeholder="Tell us about your compliance needs..."
                   required
                 ></textarea>
