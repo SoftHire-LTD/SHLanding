@@ -1,0 +1,165 @@
+import React, { useState } from 'react';
+import { Mail, Phone, MapPin, Send } from 'lucide-react';
+
+const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    message: ''
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log('Form submitted:', formData);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  return (
+    <section id="contact" className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-navy-900 mb-4">
+            Get in Touch
+          </h2>
+          <p className="text-xl text-navy-600 max-w-3xl mx-auto">
+            Ready to transform your regulatory compliance? Contact us to learn more about 
+            our upcoming products and how we can help your business.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12">
+          {/* Contact Information */}
+          <div>
+            <h3 className="text-2xl font-bold text-navy-900 mb-8">Let's Connect</h3>
+            
+            <div className="space-y-6">
+              <div className="flex items-center space-x-4">
+                <div className="bg-gold-100 p-3 rounded-lg">
+                  <Mail className="h-6 w-6 text-navy-700" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-navy-900">Email</h4>
+                  <p className="text-navy-600">hello@softhire.com</p>
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-4">
+                <div className="bg-gold-100 p-3 rounded-lg">
+                  <Phone className="h-6 w-6 text-navy-700" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-navy-900">Phone</h4>
+                  <p className="text-navy-600">+44 (0) 20 1234 5678</p>
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-4">
+                <div className="bg-gold-100 p-3 rounded-lg">
+                  <MapPin className="h-6 w-6 text-navy-700" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-navy-900">Location</h4>
+                  <p className="text-navy-600">London, United Kingdom</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-12 p-6 bg-gold-50 rounded-xl border border-gold-200">
+              <h4 className="font-semibold text-navy-900 mb-3">Stay Updated</h4>
+              <p className="text-navy-600 mb-4">
+                Be the first to know when our products launch. Join our mailing list for updates 
+                and early access opportunities.
+              </p>
+              <button className="bg-navy-700 text-white px-6 py-2 rounded-lg hover:bg-navy-800 transition-colors font-medium">
+                Subscribe to Updates
+              </button>
+            </div>
+          </div>
+
+          {/* Contact Form */}
+          <div>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-navy-700 mb-2">
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-gold-300 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-transparent transition-colors"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-navy-700 mb-2">
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-gold-300 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-transparent transition-colors"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="company" className="block text-sm font-medium text-navy-700 mb-2">
+                  Company
+                </label>
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  value={formData.company}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-gold-300 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-transparent transition-colors"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-navy-700 mb-2">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-gold-300 rounded-lg focus:ring-2 focus:ring-navy-500 focus:border-transparent transition-colors resize-none"
+                  placeholder="Tell us about your compliance needs..."
+                  required
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-navy-700 text-white py-3 px-6 rounded-lg hover:bg-navy-800 transition-colors font-semibold flex items-center justify-center group"
+              >
+                Send Message
+                <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Contact;
