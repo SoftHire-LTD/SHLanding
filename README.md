@@ -28,5 +28,5 @@ npm run build # build for production
 
 ## License
 
-This project does not currently specify a license.
+This project is licensed under the [MIT License](LICENSE).
 
