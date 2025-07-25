@@ -11,7 +11,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <ShieldCheck className="h-8 w-8 text-gold-500" />
-            <span className="text-white font-semibold text-xl">SoftHire</span>
+            <span className="text-white font-semibold text-2xl">SoftHire</span>
           </div>
 
           {/* Desktop Navigation */}
