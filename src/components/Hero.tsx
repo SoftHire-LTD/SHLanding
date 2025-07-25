@@ -21,7 +21,7 @@ const Hero = () => {
               href="#contact"
               className="bg-navy-700 text-white px-8 py-4 rounded-lg hover:bg-navy-800 transition-all duration-200 font-semibold text-lg flex items-center justify-center group"
             >
-              Request Demo
+              Join Our Pilot Offer
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
