@@ -7,8 +7,8 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-bold text-navy-900 mb-6 leading-tight">
-            Automate Regulatory Reporting
-            <span className="text-gold-500 block">End-to-End</span>
+            Automate <br className="md:hidden" />
+            Sponsor-Licence Filings <span className="text-gold-500">Now</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-navy-600 mb-8 leading-relaxed">
