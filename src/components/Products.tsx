@@ -72,9 +72,12 @@ const Products = () => {
                 ))}
               </div>
 
-              <button className="mt-8 w-full bg-navy-700 text-white py-3 px-6 rounded-lg hover:bg-navy-800 transition-colors font-semibold">
+              <a
+                href="#contact"
+                className="mt-8 w-full bg-navy-700 text-white py-3 px-6 rounded-lg hover:bg-navy-800 transition-colors font-semibold block text-center"
+              >
                 Get Notified
-              </button>
+              </a>
             </div>
           ))}
         </div>
