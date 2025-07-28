@@ -10,11 +10,13 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <img
-              src="/logo-picture_CHaM3jFR.png"
-              alt="SoftHire Logo"
-             className="h-12 w-auto scale-x-200"
-            />
+            <div className="bg-navy-800 border border-navy-700 rounded-lg px-4 py-2">
+              <img
+                src="/logo-picture_CHaM3jFR.png"
+                alt="SoftHire Logo"
+                className="h-8 w-auto scale-x-200"
+              />
+            </div>
           </div>
 
           {/* Desktop Navigation */}
