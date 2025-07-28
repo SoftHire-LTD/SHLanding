@@ -13,9 +13,8 @@ const Header = () => {
             <img
               src="/logo-picture_CHaM3jFR.png"
               alt="SoftHire Logo"
-              className="h-8 w-auto scale-x-150"
+             className="h-12 w-auto scale-x-200"
             />
-            <span className="text-white font-semibold text-2xl">SoftHire</span>
           </div>
 
           {/* Desktop Navigation */}
