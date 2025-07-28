@@ -55,7 +55,6 @@ const Products = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
         <div className="grid lg:grid-cols-3 gap-8">
           {products.map((product, index) => (
             <div key={index} className="bg-gold-100 rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300 border border-gold-200 flex flex-col">
