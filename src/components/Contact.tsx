@@ -5,14 +5,37 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    company: '',
+    companyName: '',
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    try {
+      const response = await fetch(
+        'https://support-service-api.azurewebsites.net/support/contact-us',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            companyName: formData.companyName,
+            email: formData.email,
+            message: formData.message
+          })
+        }
+      );
+
+      if (response.ok) {
+        console.log('Message sent');
+      } else {
+        console.error('Failed to send message');
+      }
+    } catch (err) {
+      console.error('Failed to send message', err);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -89,7 +112,7 @@ const Contact = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-navy-700 mb-2">
-                  Full Name
+                  Name
                 </label>
                 <input
                   type="text"
@@ -118,14 +141,14 @@ const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="company" className="block text-sm font-medium text-navy-700 mb-2">
-                  Company
+                <label htmlFor="companyName" className="block text-sm font-medium text-navy-700 mb-2">
+                  Company Name
                 </label>
                 <input
                   type="text"
-                  id="company"
-                  name="company"
-                  value={formData.company}
+                  id="companyName"
+                  name="companyName"
+                  value={formData.companyName}
                   onChange={handleChange}
                   className="w-full px-4 py-3 border border-gold-400 rounded-lg focus:ring-2 focus:ring-navy-600 focus:border-transparent transition-colors"
                 />
