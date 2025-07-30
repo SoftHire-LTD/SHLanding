@@ -8,17 +8,6 @@ const Header = () => {
     <header className="bg-navy-900 shadow-sm border-b border-gold-200 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="bg-navy-800 border border-navy-700 rounded-lg px-4 py-2">
-              <img
-                src="/logo-picture_CHaM3jFR.png"
-                alt="SoftHire Logo"
-                className="h-8 w-auto scale-x-200"
-              />
-            </div>
-          </div>
-
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <a href="#products" className="text-white hover:text-gold-400 transition-colors font-medium">
