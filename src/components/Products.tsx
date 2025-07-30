@@ -38,7 +38,7 @@ const Products = () => {
         'Visa application support',
         'Industry-specific job boards'
       ],
-      link: '/recruitment'
+      link: '#contact'
     }
   ];
 
