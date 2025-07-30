@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, ArrowRightLeft } from 'lucide-react';
+import { Menu, X, CornerDownRight } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,7 +10,7 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo and Brand */}
           <div className="flex items-center space-x-3">
-            <ArrowRightLeft className="h-8 w-8 text-gold-400" />
+            <CornerDownRight className="h-8 w-8 text-gold-400" />
             <span className="text-xl font-bold text-white">SoftHire</span>
           </div>
 
