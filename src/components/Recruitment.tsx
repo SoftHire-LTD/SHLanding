@@ -23,14 +23,6 @@ const Recruitment = () => {
     }
   ];
 
-  const features = [
-    'Sponsor license verification',
-    'Automated visa status tracking',
-    'Compliance documentation',
-    'Skills-based matching',
-    'Interview scheduling',
-    'Onboarding support'
-  ];
 
   return (
     <div className="min-h-screen bg-white">
