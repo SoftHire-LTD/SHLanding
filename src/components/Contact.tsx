@@ -13,7 +13,7 @@ const Contact = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        'https://support-service-api.azurewebsites.net/support/contact-us',
+        '/api/support/contact-us',
         {
           method: 'POST',
           headers: {
