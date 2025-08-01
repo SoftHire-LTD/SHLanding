@@ -15,7 +15,8 @@ const Contact = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        '/api/support/contact-us',
+        process.env.NEXT_PUBLIC_CONTACT_ENDPOINT ??
+        'https://support-service-api.azurewebsites.net/support/contact-us',
         {
           method: 'POST',
           headers: {
