@@ -1,0 +1,40 @@
+name: Build and Push Docker Image of Worker Service
+
+on:
+  push:
+    branches:
+      - master
+      - stg
+
+jobs:
+  build_and_push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Set environment tag
+      run: |
+        if [ "${{ github.ref_name }}" = "master" ]; then
+          echo "ENV_TAG=prod" >> $GITHUB_ENV
+        elif [ "${{ github.ref_name }}" = "stg" ]; then
+          echo "ENV_TAG=stg" >> $GITHUB_ENV
+        fi
+    - name: Login to Azure Container Registry
+      uses: azure/docker-login@v1
+      with:
+        login-server: ${{ secrets.SOFTHIRE_ACR_USERNAME }}.azurecr.io
+        username: ${{ secrets.SOFTHIRE_ACR_USERNAME }}
+        password: ${{ secrets.SOFTHIRE_ACR_PASSWORD }}
+
+    - name: Build Docker image
+      run: |
+        docker build -t shlanding .
+
+    - name: Tag Docker image
+      run: |
+        docker tag shlanding ${{ secrets.SOFTHIRE_ACR_USERNAME }}.azurecr.io/shlanding:${{ env.ENV_TAG }}
+
+    - name: Push Docker image to Azure Container Registry
+      run: |
+        docker push ${{ secrets.SOFTHIRE_ACR_USERNAME }}.azurecr.io/shlanding:${{ env.ENV_TAG }}
