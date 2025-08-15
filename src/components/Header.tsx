@@ -19,15 +19,18 @@ const Header = () => {
             <a href="#products" className="text-white hover:text-gold-400 transition-colors font-medium">
               Products
             </a>
+            <a href="/recruitment" className="text-white hover:text-gold-400 transition-colors font-medium">
+              Recruitment
+            </a>
             <a href="#about" className="text-white hover:text-gold-400 transition-colors font-medium">
               About
             </a>
             <a href="#contact" className="text-white hover:text-gold-400 transition-colors font-medium">
               Contact
             </a>
-            <button className="bg-navy-700 text-white px-6 py-2 rounded-lg hover:bg-navy-800 transition-colors font-medium">
-              Get Started
-            </button>
+            <a href="/recruitment" className="bg-navy-700 text-white px-6 py-2 rounded-lg hover:bg-navy-800 transition-colors font-medium">
+              Start Recruiting
+            </a>
           </nav>
 
           {/* Mobile menu button */}
@@ -46,15 +49,18 @@ const Header = () => {
               <a href="#products" className="text-white hover:text-gold-400 transition-colors font-medium">
                 Products
               </a>
+              <a href="/recruitment" className="text-white hover:text-gold-400 transition-colors font-medium">
+                Recruitment
+              </a>
               <a href="#about" className="text-white hover:text-gold-400 transition-colors font-medium">
                 About
               </a>
               <a href="#contact" className="text-white hover:text-gold-400 transition-colors font-medium">
                 Contact
               </a>
-              <button className="bg-navy-700 text-white px-6 py-2 rounded-lg hover:bg-navy-800 transition-colors font-medium w-fit">
-                Get Started
-              </button>
+              <a href="/recruitment" className="bg-navy-700 text-white px-6 py-2 rounded-lg hover:bg-navy-800 transition-colors font-medium w-fit">
+                Start Recruiting
+              </a>
             </div>
           </div>
         )}
