@@ -1,5 +1,5 @@
 import React from 'react';
-import { Users, Building2, Clock, Shield, UserCheck } from 'lucide-react';
+import { Users, Clock, Shield, UserCheck, ClipboardCheck } from 'lucide-react';
 
 const Products = () => {
   const products = [
@@ -16,16 +16,17 @@ const Products = () => {
       ]
     },
     {
-      icon: Building2,
-      title: 'FCA Compliance',
-      description: 'Comprehensive regulatory reporting for financial services, ensuring adherence to FCA requirements.',
-      status: 'Coming Soon',
+      icon: ClipboardCheck,
+      title: 'Apply for Sponsor License',
+      description: 'Step-by-step assistance and efficient management of your sponsor license application.',
+      status: 'Available Now',
       features: [
-        'Regulatory return automation',
-        'Risk assessment tools',
-        'Audit trail management',
-        'Real-time compliance monitoring'
-      ]
+        'Guided document preparation',
+        'Automated eligibility checks',
+        'Timeline and progress tracking',
+        'Expert support to reduce approval times'
+      ],
+      link: '#contact'
     },
     {
       icon: UserCheck,
