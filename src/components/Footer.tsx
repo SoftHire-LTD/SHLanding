@@ -9,13 +9,9 @@ const Footer = () => {
           {/* Company Info */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="bg-navy-800 border border-navy-700 rounded-lg px-4 py-2">
-                <img 
-                  src="/logo-picture_CHaM3jFR.png" 
-                  alt="SoftHire Logo" 
-                  className="h-8 w-auto scale-x-200" 
-                />
-              </div>
+              <span className="font-['DM Sans'] text-2xl font-bold text-gold-400">
+                SoftHire
+              </span>
             </div>
             <p className="text-navy-300 mb-6 max-w-md">
               Automating regulatory reporting end-to-end, from data collection to submission. 
