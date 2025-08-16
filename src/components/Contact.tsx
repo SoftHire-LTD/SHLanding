@@ -72,7 +72,7 @@ const Contact = () => {
           <div>
             <h3 className="text-2xl font-bold text-navy-900 mb-8">Let's Connect</h3>
 
-            <div className="mt-12 p-6 bg-gold-100 rounded-xl border border-gold-300">
+            <div className="mt-12 card card--tight p-6 bg-gold-100 rounded-xl border border-gold-300">
               <h4 className="font-semibold text-navy-900 mb-3">Stay Updated</h4>
               <p className="text-navy-600 mb-4">
                 Be the first to know when our products launch. Join our mailing list for updates 
