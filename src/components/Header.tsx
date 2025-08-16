@@ -5,27 +5,27 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-navy-900 shadow-sm border-b border-gold-200 sticky top-0 z-50">
+    <header className="bg-primary-900 shadow-sm border-b border-accent-200 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Brand */}
-          <span className="font-['DM Sans'] text-2xl font-bold text-gold-400">SoftHire</span>
+          <span className="font-sans text-2xl font-bold text-accent-400">SoftHire</span>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#products" className="text-white hover:text-gold-400 transition-colors font-medium">
+            <a href="#products" className="text-white hover:text-accent-400 transition-colors font-medium">
               Products
             </a>
-            <a href="/recruitment" className="text-white hover:text-gold-400 transition-colors font-medium">
+            <a href="/recruitment" className="text-white hover:text-accent-400 transition-colors font-medium">
               Recruitment
             </a>
-            <a href="#about" className="text-white hover:text-gold-400 transition-colors font-medium">
+            <a href="#about" className="text-white hover:text-accent-400 transition-colors font-medium">
               About
             </a>
-            <a href="#contact" className="text-white hover:text-gold-400 transition-colors font-medium">
+            <a href="#contact" className="text-white hover:text-accent-400 transition-colors font-medium">
               Contact
             </a>
-            <a href="/recruitment" className="bg-navy-700 text-white px-6 py-2 rounded-lg hover:bg-navy-800 transition-colors font-medium">
+            <a href="/recruitment" className="bg-primary-700 text-white px-6 py-2 rounded-lg hover:bg-primary-800 transition-colors font-medium">
               Start Recruiting
             </a>
           </nav>
@@ -41,21 +41,21 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gold-200 bg-navy-900">
+          <div className="md:hidden py-4 border-t border-accent-200 bg-primary-900">
             <div className="flex flex-col space-y-4">
-              <a href="#products" className="text-white hover:text-gold-400 transition-colors font-medium">
+              <a href="#products" className="text-white hover:text-accent-400 transition-colors font-medium">
                 Products
               </a>
-              <a href="/recruitment" className="text-white hover:text-gold-400 transition-colors font-medium">
+              <a href="/recruitment" className="text-white hover:text-accent-400 transition-colors font-medium">
                 Recruitment
               </a>
-              <a href="#about" className="text-white hover:text-gold-400 transition-colors font-medium">
+              <a href="#about" className="text-white hover:text-accent-400 transition-colors font-medium">
                 About
               </a>
-              <a href="#contact" className="text-white hover:text-gold-400 transition-colors font-medium">
+              <a href="#contact" className="text-white hover:text-accent-400 transition-colors font-medium">
                 Contact
               </a>
-              <a href="/recruitment" className="bg-navy-700 text-white px-6 py-2 rounded-lg hover:bg-navy-800 transition-colors font-medium w-fit">
+              <a href="/recruitment" className="bg-primary-700 text-white px-6 py-2 rounded-lg hover:bg-primary-800 transition-colors font-medium w-fit">
                 Start Recruiting
               </a>
             </div>

@@ -3,16 +3,16 @@ import { ArrowRight, CheckCircle } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="bg-gradient-to-br from-gold-100 via-white to-navy-100 py-20 lg:py-28">
+    <section className="bg-gradient-to-br from-accent-100 via-white to-primary-100 py-20 lg:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-bold text-navy-900 mb-6 leading-tight">
+          <h1 className="text-4xl md:text-6xl font-bold text-primary-900 mb-6 leading-tight">
             Simplify <br className="md:hidden" />
-            Sponsorship <span className="text-gold-500">Compliance</span> &
+            Sponsorship <span className="text-accent-500">Compliance</span> &
             Recruitment
           </h1>
 
-          <p className="text-xl md:text-2xl text-navy-600 mb-8 leading-relaxed">
+          <p className="text-xl md:text-2xl text-primary-600 mb-8 leading-relaxed">
             SoftHire streamlines sponsor license applications and connects you with qualified global talent,
             helping businesses navigate compliance and recruitment with confidence.
           </p>
@@ -20,30 +20,30 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <a
               href="/recruitment"
-              className="bg-navy-700 text-white px-8 py-4 rounded-lg hover:bg-navy-800 transition-all duration-200 font-semibold text-lg flex items-center justify-center group"
+              className="bg-primary-700 text-white px-8 py-4 rounded-lg hover:bg-primary-800 transition-all duration-200 font-semibold text-lg flex items-center justify-center group"
             >
               Find Sponsored Talent
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
               href="#contact"
-              className="border-2 border-gold-300 text-navy-700 px-8 py-4 rounded-lg hover:border-gold-400 hover:text-gold-400 transition-all duration-200 font-semibold text-lg"
+              className="border-2 border-accent-300 text-primary-700 px-8 py-4 rounded-lg hover:border-accent-400 hover:text-accent-400 transition-all duration-200 font-semibold text-lg"
             >
               Apply for Sponsor License
             </a>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            <div className="flex items-center justify-center space-x-2 text-navy-700">
-              <CheckCircle className="h-5 w-5 text-gold-400" />
+            <div className="flex items-center justify-center space-x-2 text-primary-700">
+              <CheckCircle className="h-5 w-5 text-accent-400" />
               <span className="font-medium">Efficient Sponsor License Applications</span>
             </div>
-            <div className="flex items-center justify-center space-x-2 text-navy-700">
-              <CheckCircle className="h-5 w-5 text-gold-400" />
+            <div className="flex items-center justify-center space-x-2 text-primary-700">
+              <CheckCircle className="h-5 w-5 text-accent-400" />
               <span className="font-medium">Global Talent Matching</span>
             </div>
-            <div className="flex items-center justify-center space-x-2 text-navy-700">
-              <CheckCircle className="h-5 w-5 text-gold-400" />
+            <div className="flex items-center justify-center space-x-2 text-primary-700">
+              <CheckCircle className="h-5 w-5 text-accent-400" />
               <span className="font-medium">Real-time Compliance</span>
             </div>
           </div>
