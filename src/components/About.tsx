@@ -51,7 +51,7 @@ const About = () => {
           ))}
         </div>
 
-        <div className="bg-white dark:bg-primary-800 rounded-xl p-8 md:p-12 shadow-sm border border-accent-200 dark:border-primary-700">
+        <div className="card bg-white dark:bg-primary-800 rounded-xl p-8 md:p-12 shadow-sm border border-accent-200 dark:border-primary-700">
           <div className="max-w-4xl mx-auto text-center">
             <h3 className="text-2xl md:text-3xl font-bold text-primary-900 dark:text-primary-100 mb-6">
               Why Choose SoftHire?

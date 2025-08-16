@@ -118,6 +118,11 @@ const Recruitment = () => {
 
       {/* Platform Features */}
       <section className="py-24 bg-primary-100 dark:bg-primary-800">
+        <div aria-hidden="true" style={{ lineHeight: 0 }}>
+          <svg viewBox="0 0 1440 120" preserveAspectRatio="none" style={{ display: 'block', width: '100%', height: 'auto' }}>
+            <path d="M0,120 C360,0 1080,0 1440,120 L1440,0 L0,0 Z" fill="var(--bg-light)"></path>
+          </svg>
+        </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-primary-900 dark:text-primary-100 mb-4">
