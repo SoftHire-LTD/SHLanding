@@ -60,7 +60,7 @@ const Products = () => {
           {products.map((product, index) => (
             <div
               key={index}
-              className="bg-accent-100 dark:bg-primary-800 rounded-xl p-8 hover:shadow-lg transition-shadow duration-300 border border-accent-200 dark:border-primary-700 flex flex-col"
+              className="card bg-accent-100 dark:bg-primary-800 rounded-xl p-8 hover:shadow-lg transition-shadow duration-300 border border-accent-200 dark:border-primary-700 flex flex-col"
             >
               <div className="flex items-center mb-6">
                 <div className="bg-primary-200 dark:bg-primary-700 p-3 rounded-lg mr-4">
