@@ -12,7 +12,7 @@ const Header = () => {
           <span className="font-sans text-2xl font-bold text-accent-400">SoftHire</span>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="navbar hidden md:flex items-center space-x-8">
             <a href="#products" className="text-white hover:text-accent-400 transition-colors font-medium">
               Products
             </a>
@@ -25,7 +25,7 @@ const Header = () => {
             <a href="#contact" className="text-white hover:text-accent-400 transition-colors font-medium">
               Contact
             </a>
-            <a href="/recruitment" className="bg-primary-700 text-white px-6 py-2 rounded-lg hover:bg-primary-800 transition-colors font-medium">
+            <a href="/recruitment" className="cta bg-primary-700 text-white px-6 py-2 rounded-lg hover:bg-primary-800 transition-colors font-medium">
               Start Recruiting
             </a>
           </nav>
@@ -55,7 +55,7 @@ const Header = () => {
               <a href="#contact" className="text-white hover:text-accent-400 transition-colors font-medium">
                 Contact
               </a>
-              <a href="/recruitment" className="bg-primary-700 text-white px-6 py-2 rounded-lg hover:bg-primary-800 transition-colors font-medium w-fit">
+              <a href="/recruitment" className="cta bg-primary-700 text-white px-6 py-2 rounded-lg hover:bg-primary-800 transition-colors font-medium w-fit">
                 Start Recruiting
               </a>
             </div>
