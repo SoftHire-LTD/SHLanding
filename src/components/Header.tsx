@@ -5,7 +5,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-primary-900 shadow-sm border-b border-accent-200 sticky top-0 z-50">
+    <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Brand */}
@@ -13,19 +13,19 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="navbar hidden md:flex items-center space-x-8">
-            <a href="#products" className="text-white hover:text-accent-400 transition-colors font-medium">
+            <a href="#products" className="text-[#0B1220] hover:text-brand-600 transition-colors font-medium">
               Products
             </a>
-            <a href="/recruitment" className="text-white hover:text-accent-400 transition-colors font-medium">
+            <a href="/recruitment" className="text-[#0B1220] hover:text-brand-600 transition-colors font-medium">
               Recruitment
             </a>
-            <a href="#about" className="text-white hover:text-accent-400 transition-colors font-medium">
+            <a href="#about" className="text-[#0B1220] hover:text-brand-600 transition-colors font-medium">
               About
             </a>
-            <a href="#contact" className="text-white hover:text-accent-400 transition-colors font-medium">
+            <a href="#contact" className="text-[#0B1220] hover:text-brand-600 transition-colors font-medium">
               Contact
             </a>
-            <a href="/recruitment" className="cta bg-primary-700 text-white px-6 py-2 rounded-lg hover:bg-primary-800 transition-colors font-medium">
+            <a href="/recruitment" className="btn btn--primary">
               Start Recruiting
             </a>
           </nav>
@@ -55,9 +55,9 @@ const Header = () => {
               <a href="#contact" className="text-white hover:text-accent-400 transition-colors font-medium">
                 Contact
               </a>
-              <a href="/recruitment" className="cta bg-primary-700 text-white px-6 py-2 rounded-lg hover:bg-primary-800 transition-colors font-medium w-fit">
-                Start Recruiting
-              </a>
+                <a href="/recruitment" className="btn btn--primary">
+                  Start Recruiting
+                </a>
             </div>
           </div>
         )}
