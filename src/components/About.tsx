@@ -26,13 +26,13 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-navy-100">
+    <section id="about" className="py-20 bg-primary-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-navy-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-4">
             About SoftHire
           </h2>
-          <p className="text-xl text-navy-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-primary-600 max-w-3xl mx-auto leading-relaxed">
             We're building the future of regulatory compliance technology. Our platform transforms 
             complex regulatory requirements into streamlined, automated processes that save time, 
             reduce risk, and ensure accuracy.
@@ -42,38 +42,38 @@ const About = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {values.map((value, index) => (
             <div key={index} className="text-center">
-              <div className="bg-gold-200 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <value.icon className="h-8 w-8 text-navy-700" />
+              <div className="bg-accent-200 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <value.icon className="h-8 w-8 text-primary-700" />
               </div>
-              <h3 className="text-xl font-bold text-navy-900 mb-2">{value.title}</h3>
-              <p className="text-navy-600">{value.description}</p>
+              <h3 className="text-xl font-bold text-primary-900 mb-2">{value.title}</h3>
+              <p className="text-primary-600">{value.description}</p>
             </div>
           ))}
         </div>
 
-        <div className="bg-white rounded-2xl p-8 md:p-12 shadow-sm border border-gold-200">
+        <div className="bg-white rounded-2xl p-8 md:p-12 shadow-sm border border-accent-200">
           <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-2xl md:text-3xl font-bold text-navy-900 mb-6">
+            <h3 className="text-2xl md:text-3xl font-bold text-primary-900 mb-6">
               Why Choose SoftHire?
             </h3>
             <div className="grid md:grid-cols-3 gap-8 text-left">
               <div>
-                <h4 className="font-semibold text-navy-900 mb-3">End-to-End Automation</h4>
-                <p className="text-navy-600">
+                <h4 className="font-semibold text-primary-900 mb-3">End-to-End Automation</h4>
+                <p className="text-primary-600">
                   From initial data collection to final regulatory submission, our platform handles 
                   every step of the compliance process.
                 </p>
               </div>
               <div>
-                <h4 className="font-semibold text-navy-900 mb-3">Industry Expertise</h4>
-                <p className="text-navy-600">
+                <h4 className="font-semibold text-primary-900 mb-3">Industry Expertise</h4>
+                <p className="text-primary-600">
                   Built by compliance professionals who understand the challenges of regulatory 
                   reporting in today's complex environment.
                 </p>
               </div>
               <div>
-                <h4 className="font-semibold text-navy-900 mb-3">Scalable Solutions</h4>
-                <p className="text-navy-600">
+                <h4 className="font-semibold text-primary-900 mb-3">Scalable Solutions</h4>
+                <p className="text-primary-600">
                   Whether you're a growing startup or an established enterprise, our platform 
                   scales with your compliance needs.
                 </p>

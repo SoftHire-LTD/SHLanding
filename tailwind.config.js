@@ -3,8 +3,11 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+      },
       colors: {
-        gold: {
+        accent: {
           50: '#fefcf3',
           100: '#fef7e0',
           200: '#fce8a8',
@@ -16,7 +19,7 @@ export default {
           800: '#a6722b',
           900: '#8a5f24',
         },
-        navy: {
+        primary: {
           50: '#f0f3f9',
           100: '#dde4f0',
           200: '#c2cfe3',
@@ -27,8 +30,8 @@ export default {
           700: '#3d4578',
           800: '#343a63',
           900: '#2d3154',
-        }
-      }
+        },
+      },
     },
   },
   plugins: [],
