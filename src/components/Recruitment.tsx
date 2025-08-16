@@ -88,7 +88,7 @@ const Recruitment = () => {
             {targetIndustries.map((industry, index) => (
               <div
                 key={index}
-                className="bg-accent-100 dark:bg-primary-800 rounded-xl p-8 hover:shadow-lg transition-shadow duration-300 border border-accent-200 dark:border-primary-700"
+                className="card card--elevated bg-accent-100 dark:bg-primary-800 rounded-xl p-8 hover:shadow-lg transition-shadow duration-300 border border-accent-200 dark:border-primary-700"
               >
                 <div className="flex items-center mb-6">
                   <div className="bg-primary-200 dark:bg-primary-700 p-3 rounded-lg mr-4">
@@ -135,7 +135,7 @@ const Recruitment = () => {
 
           <div className="grid md:grid-cols-2 gap-12">
             {/* For Employers */}
-            <div className="bg-white dark:bg-primary-700 rounded-xl p-8 shadow-sm border border-accent-200 dark:border-primary-600">
+            <div className="card card--tight bg-white dark:bg-primary-700 rounded-xl p-8 shadow-sm border border-accent-200 dark:border-primary-600">
               <div className="flex items-center mb-6">
                 <Building2 className="h-8 w-8 text-primary-700 dark:text-primary-200 mr-3" />
                 <h3 className="text-2xl font-bold text-primary-900 dark:text-primary-100">For Employers</h3>
@@ -161,7 +161,7 @@ const Recruitment = () => {
             </div>
 
             {/* For Candidates */}
-            <div className="bg-white dark:bg-primary-700 rounded-xl p-8 shadow-sm border border-accent-200 dark:border-primary-600">
+            <div className="card card--tight bg-white dark:bg-primary-700 rounded-xl p-8 shadow-sm border border-accent-200 dark:border-primary-600">
               <div className="flex items-center mb-6">
                 <Users className="h-8 w-8 text-primary-700 dark:text-primary-200 mr-3" />
                 <h3 className="text-2xl font-bold text-primary-900 dark:text-primary-100">For Candidates</h3>
