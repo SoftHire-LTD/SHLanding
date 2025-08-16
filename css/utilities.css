@@ -36,3 +36,10 @@
 /* Footer */
 .footer { background: var(--bg-dark); color: var(--text-light); }
 .footer a { color: var(--blue-200); }
+
+.container { max-width: 1200px; margin: 0 auto; padding-left: 16px; padding-right: 16px; }
+.section { padding: 64px 0; }
+.section--tight { padding: 32px 0; }
+img, svg { display:block; max-width:100%; height:auto; }
+* { box-sizing: border-box; }
+html, body { overflow-x:hidden; }
