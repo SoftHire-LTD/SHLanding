@@ -44,8 +44,20 @@ const Products = () => {
   ];
 
   return (
-    <section id="products" className="py-24 bg-white dark:bg-primary-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="products" className="section section--brand py-24 bg-white dark:bg-primary-900">
+      <div className="container">
+        <div aria-hidden="true" style={{ lineHeight: 0 }}>
+          <svg
+            viewBox="0 0 1440 120"
+            preserveAspectRatio="none"
+            style={{ display: 'block', width: '100%', height: 'auto' }}
+          >
+            <path
+              d="M0,120 C360,0 1080,0 1440,120 L1440,0 L0,0 Z"
+              fill="#F9F9F9"
+            />
+          </svg>
+        </div>
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-primary-900 dark:text-primary-100 mb-4">
             Our Products
