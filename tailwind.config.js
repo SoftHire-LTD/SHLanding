@@ -7,8 +7,36 @@ export default {
         sans: ['Inter', 'sans-serif'],
       },
       colors: {
-        accent: {
-          50: '#fefcf3',
+        brand: {
+          50: '#eef3ff',
+          100: '#dbe6ff',
+          200: '#b8cdff',
+          300: '#8aaaff',
+          400: '#5f8bff',      /* near #4995EF */
+          500: '#4361ED',      /* primary brand */
+          600: '#3C5DEC',      /* hover/darker */
+          700: '#2f4ed0',
+          800: '#243ea8',
+          900: '#1d327f'
+        },
+        primary: {             /* alias primary -> brand for existing classes */
+          50:  '#eef3ff',
+          100: '#dbe6ff',
+          200: '#b8cdff',
+          300: '#8aaaff',
+          400: '#5f8bff',
+          500: '#4361ED',
+          600: '#3C5DEC',
+          700: '#2f4ed0',
+          800: '#243ea8',
+          900: '#1d327f'
+        },
+        navy: {
+          900: '#021626',      /* dark sections (hero/footer background) */
+          950: '#010e18'
+        },
+        accent: {              /* keep your gold accent for small highlights */
+          50:  '#fefcf3',
           100: '#fef7e0',
           200: '#fce8a8',
           300: '#fad980',
@@ -17,20 +45,8 @@ export default {
           600: '#e6a042',
           700: '#cc8b35',
           800: '#a6722b',
-          900: '#8a5f24',
-        },
-        primary: {
-          50: '#f0f3f9',
-          100: '#dde4f0',
-          200: '#c2cfe3',
-          300: '#9bb0d1',
-          400: '#7289bc',
-          500: '#5569a8',
-          600: '#475394',
-          700: '#3d4578',
-          800: '#343a63',
-          900: '#2d3154',
-        },
+          900: '#8a5f24'
+        }
       },
     },
   },
