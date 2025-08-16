@@ -3,7 +3,7 @@ import { Linkedin, Twitter, Mail } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-primary-900 text-white py-12">
+    <footer className="bg-primary-900 dark:bg-primary-950 text-white py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -18,13 +18,22 @@ const Footer = () => {
               Helping businesses navigate complex compliance requirements with confidence.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-primary-400 hover:text-accent-400 transition-colors">
+              <a
+                href="#"
+                className="p-2 rounded-full text-primary-400 hover:text-accent-400 hover:bg-primary-800 dark:hover:bg-primary-700 transition-colors"
+              >
                 <Linkedin className="h-6 w-6" />
               </a>
-              <a href="#" className="text-primary-400 hover:text-accent-400 transition-colors">
+              <a
+                href="#"
+                className="p-2 rounded-full text-primary-400 hover:text-accent-400 hover:bg-primary-800 dark:hover:bg-primary-700 transition-colors"
+              >
                 <Twitter className="h-6 w-6" />
               </a>
-              <a href="#" className="text-primary-400 hover:text-accent-400 transition-colors">
+              <a
+                href="#"
+                className="p-2 rounded-full text-primary-400 hover:text-accent-400 hover:bg-primary-800 dark:hover:bg-primary-700 transition-colors"
+              >
                 <Mail className="h-6 w-6" />
               </a>
             </div>
@@ -75,7 +84,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-primary-800 mt-12 pt-8 text-center">
+        <div className="border-t border-primary-800 dark:border-primary-700 mt-12 pt-8 text-center">
           <p className="text-primary-400">
             © 2025 SoftHire. All rights reserved. Building the future of regulatory compliance.
           </p>
