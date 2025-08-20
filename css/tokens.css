@@ -1,32 +1,62 @@
 :root {
-  /* Brand colors */
-  --brand-primary: #4361ED;
-  --brand-primary-2: #4995EF;
-  --brand-royal: #3C5DEC;
+  /* New Color Palette */
+  /* Dark Navy Blue / Midnight Blue - Professional backgrounds */
+  --navy-primary: #0C1C2D;
+  --navy-dark: #071018;
+  
+  /* Bright Blue / Accent Blue - CTAs and highlights */
+  --blue-primary: #2D6FF7;
+  --blue-hover: #2563EB;
+  --blue-light: #93C5FD;
+  
+  /* Black / Dark Charcoal - Text and UI elements */
+  --charcoal-primary: #222222;
+  --black: #000000;
+  
+  /* Light Grey - Backgrounds and dividers */
+  --grey-light: #F5F5F5;
+  --grey-medium: #DDDDDD;
+  --grey-white: #FFFFFF;
+  
+  /* Soft Pastel Accent Shapes - Decorative */
+  --mint-accent: #B6E2C8;
+  --lavender-accent: #D6C4F2;
+  --aqua-accent: #B0E0E6;
 
-  /* Backgrounds & surfaces */
-  --bg-dark:   #021626;
-  --bg-light:  #F9F9F9;
+  /* Brand colors - Updated */
+  --brand-primary: #2D6FF7;
+  --brand-primary-2: #93C5FD;
+  --brand-royal: #2563EB;
+
+  /* Backgrounds & surfaces - Updated */
+  --bg-dark: #0C1C2D;
+  --bg-light: #F5F5F5;
   --surface-1: #FFFFFF;
-  --surface-2: #0F2747;
+  --surface-2: #222222;
 
-  /* Text */
-  --text-dark:  #0B1220;
+  /* Text - Updated */
+  --text-dark: #222222;
   --text-light: #FFFFFF;
-  --text-muted: #647290;
+  --text-muted: #64748B;
 
-  /* Borders & lines */
-  --line:       #9FA1A3;
-  --line-dark:  #374755;
+  /* Borders & lines - Updated */
+  --line: #DDDDDD;
+  --line-dark: #475569;
 
-  /* Blues scale */
-  --blue-100: #AFCDF0;
-  --blue-200: #96B0ED;
-  --blue-600: #4995EF;
-  --blue-700: #4361ED;
+  /* Blues scale - Updated */
+  --blue-100: #DBEAFE;
+  --blue-200: #BFDBFE;
+  --blue-600: #2D6FF7;
+  --blue-700: #2563EB;
 
-  /* Gradients */
-  --grad-brand: linear-gradient(180deg, #4995EF 0%, #4361ED 100%);
+  /* Gradients - Updated */
+  --grad-brand: linear-gradient(180deg, #2D6FF7 0%, #2563EB 100%);
+  --grad-navy: linear-gradient(135deg, #0C1C2D 0%, #1E40AF 100%);
+
+  /* Decorative gradients with pastels */
+  --grad-mint: linear-gradient(135deg, #B6E2C8 0%, rgba(182, 226, 200, 0.3) 100%);
+  --grad-lavender: linear-gradient(135deg, #D6C4F2 0%, rgba(214, 196, 242, 0.3) 100%);
+  --grad-aqua: linear-gradient(135deg, #B0E0E6 0%, rgba(176, 224, 230, 0.3) 100%);
 
   /* Radius & spacing */
   --radius-sm: 8px;
@@ -48,16 +78,18 @@
 
   /* Type scale */
   --fs-display: clamp(40px, 6vw, 64px);
-  --fs-h2:      clamp(28px, 3.5vw, 40px);
-  --fs-h3:      24px;
-  --fs-body:    16px;
-  --fs-small:   14px;
-  --lh-tight:   1.15;
-  --lh-normal:  1.5;
+  --fs-h2: clamp(28px, 3.5vw, 40px);
+  --fs-h3: 24px;
+  --fs-body: 16px;
+  --fs-small: 14px;
+  --lh-tight: 1.15;
+  --lh-normal: 1.5;
 
-  /* Shadows */
-  --shadow-1: 0 4px 16px rgba(2, 22, 38, 0.08);
-  --shadow-2: 0 8px 28px rgba(2, 22, 38, 0.12);
+  /* Shadows - Enhanced */
+  --shadow-1: 0 4px 16px rgba(12, 28, 45, 0.08);
+  --shadow-2: 0 8px 28px rgba(12, 28, 45, 0.12);
+  --shadow-card: 0 10px 40px rgba(12, 28, 45, 0.1);
+  --shadow-floating: 0 20px 60px rgba(12, 28, 45, 0.15);
 }
 
 html, body {
