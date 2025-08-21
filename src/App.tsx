@@ -7,8 +7,6 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Recruitment from './components/Recruitment';
-import PrivacyPolicy from './components/PrivacyPolicy';
-import TermsOfService from './components/TermsOfService';
 
 const HomePage = () => (
   <>
@@ -28,8 +26,6 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/recruitment" element={<Recruitment />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/terms-of-service" element={<TermsOfService />} />
         </Routes>
         <Footer />
       </div>
