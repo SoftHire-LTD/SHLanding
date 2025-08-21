@@ -31,7 +31,7 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build -t shlanding .
+        docker build --build-arg VITE_CONTACT_ENDPOINT="${{ secrets.VITE_CONTACT_ENDPOINT }}" -t shlanding .
 
     - name: Tag Docker image
       run: |
