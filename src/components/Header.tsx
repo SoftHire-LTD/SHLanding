@@ -10,6 +10,7 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           {/* Brand */}
           <div className="flex items-center">
+
             <span className="hidden font-sans text-2xl font-bold bg-gradient-to-r from-blue-500 to-navy-800 bg-clip-text text-transparent">
               SoftHire
             </span>
