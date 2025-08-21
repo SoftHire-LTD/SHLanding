@@ -13,7 +13,7 @@ const Header = () => {
             <span className="hidden font-sans text-2xl font-bold bg-gradient-to-r from-blue-500 to-navy-800 bg-clip-text text-transparent">
               SoftHire
             </span>
-            <img src="/public/logo.png" alt="SoftHire Logo" className="h-8 ml-2" />
+            <img src="/logo.png" alt="SoftHire Logo" className="h-8 ml-2" />
           </div>
 
           {/* Desktop Navigation */}
