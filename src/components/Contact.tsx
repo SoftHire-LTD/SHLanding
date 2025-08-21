@@ -15,7 +15,7 @@ const Contact = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        import.meta.env.VITE_CONTACT_ENDPOINT + '/support/contact-us',
+        import.meta.env.VITE_CONTACT_ENDPOINT ? import.meta.env.VITE_CONTACT_ENDPOINT + '/support/contact-us' : 'https://support-service-api.azurewebsites.net/support/contact-us',
         {
           method: 'POST',
           headers: {
@@ -68,7 +68,7 @@ const Contact = () => {
             Get in Touch
           </h2>
           <p className="text-xl text-charcoal-700 max-w-4xl mx-auto leading-relaxed">
-            Ready to transform your regulatory compliance? Contact us to learn more about 
+            Ready to transform your regulatory compliance? Contact us to learn more about
             our upcoming products and how we can help your business.
           </p>
         </div>
@@ -78,28 +78,28 @@ const Contact = () => {
           <div className="space-y-8">
             <div>
               <h3 className="text-3xl font-bold text-navy-900 mb-8">Let's Connect</h3>
-              
+
               {/* Contact Info Cards */}
               <div className="space-y-6">
-                  <a href="mailto:support@softhire.com"  className="flex items-center space-x-4 bg-white/70 backdrop-blur-sm rounded-xl p-6 border border-grey-200/50 hover:shadow-lg transition-all duration-300">
-                    <div className="bg-blue-100 p-3 rounded-lg">
-                      <Mail className="h-6 w-6 text-blue-500" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-navy-900">Email Us</h4>
-                      <p className="text-charcoal-700">support@softhire.com</p>
-                    </div>
-                  </a>
-                
-                  <a href="tel:+1234567890"  className="flex items-center space-x-4 bg-white/70 backdrop-blur-sm rounded-xl p-6 border border-grey-200/50 hover:shadow-lg transition-all duration-300">
-                    <div className="bg-mint-100 p-3 rounded-lg">
-                      <Phone className="h-6 w-6 text-mint-600" />
-                    </div>
-                    <div>
-                      <h4 className="font-semibold text-navy-900">Call Us</h4>
-                      <p className="text-charcoal-700">+44 (0) 20 1234 5678</p>
-                    </div>
-                  </a>
+                <a href="mailto:support@softhire.com" className="flex items-center space-x-4 bg-white/70 backdrop-blur-sm rounded-xl p-6 border border-grey-200/50 hover:shadow-lg transition-all duration-300">
+                  <div className="bg-blue-100 p-3 rounded-lg">
+                    <Mail className="h-6 w-6 text-blue-500" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-navy-900">Email Us</h4>
+                    <p className="text-charcoal-700">support@softhire.com</p>
+                  </div>
+                </a>
+
+                <a href="tel:+1234567890" className="flex items-center space-x-4 bg-white/70 backdrop-blur-sm rounded-xl p-6 border border-grey-200/50 hover:shadow-lg transition-all duration-300">
+                  <div className="bg-mint-100 p-3 rounded-lg">
+                    <Phone className="h-6 w-6 text-mint-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-navy-900">Call Us</h4>
+                    <p className="text-charcoal-700">+44 (0) 20 1234 5678</p>
+                  </div>
+                </a>
 
                 <a href='https://www.google.com/maps/place/London,+United+Kingdom' target='_blank' className="flex items-center space-x-4 bg-white/70 backdrop-blur-sm rounded-xl p-6 border border-grey-200/50 hover:shadow-lg transition-all duration-300 hidden">
                   <div className="bg-lavender-100 p-3 rounded-lg">
@@ -116,7 +116,7 @@ const Contact = () => {
             <div className="bg-gradient-to-br from-mint-50 to-white rounded-2xl p-8 border border-mint-200/50 shadow-lg">
               <h4 className="text-xl font-bold text-navy-900 mb-4">Stay Updated</h4>
               <p className="text-charcoal-700 mb-6 leading-relaxed">
-                Be the first to know when our products launch. Join our mailing list for updates 
+                Be the first to know when our products launch. Join our mailing list for updates
                 and early access opportunities.
               </p>
               <button
