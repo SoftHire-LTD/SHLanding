@@ -1,4 +1,5 @@
 import { Linkedin, Twitter, Mail } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -82,14 +83,14 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#" className="text-blue-200 hover:text-white transition-colors duration-300 hover:translate-x-1 transform inline-block">
+                <Link to="/" className="text-blue-200 hover:text-white transition-colors duration-300 hover:translate-x-1 transform inline-block">
                   Privacy Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-blue-200 hover:text-white transition-colors duration-300 hover:translate-x-1 transform inline-block">
+                <Link to="/" className="text-blue-200 hover:text-white transition-colors duration-300 hover:translate-x-1 transform inline-block">
                   Terms of Service
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -97,7 +98,7 @@ const Footer = () => {
 
         <div className="border-t border-white/20 mt-16 pt-8 text-center">
           <p className="text-blue-300 text-lg">
-            © 2025 SoftHire. All rights reserved. Building the future of regulatory compliance.
+            &copy; 2025 SoftHire. All rights reserved. Building the future of regulatory compliance.
           </p>
         </div>
       </div>

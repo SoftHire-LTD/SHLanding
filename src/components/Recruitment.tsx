@@ -1,4 +1,5 @@
 import { Users, Building2, Stethoscope, Code, Factory, ArrowRight, CheckCircle, Star } from 'lucide-react';
+import Contact from './Contact';
 
 const Recruitment = () => {
   const targetIndustries = [
@@ -81,17 +82,17 @@ const Recruitment = () => {
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
               <a
-                href="/#contact"
+                href="#contact"
                 className="btn btn--primary group text-lg px-8 py-4"
               >
-                Join as Employer
+                For Companies
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </a>
               <a
-                href="/#contact"
+                href="#contact"
                 className="btn text-white border-2 border-blue-300 hover:bg-blue-500/10 hover:border-blue-400 transition-all duration-300 text-lg px-8 py-4"
               >
-                Find Sponsored Jobs
+                For Candidates
               </a>
             </div>
 
@@ -191,7 +192,7 @@ const Recruitment = () => {
                 <div className="bg-blue-100 p-4 rounded-xl mr-4">
                   <Building2 className="h-8 w-8 text-blue-600" />
                 </div>
-                <h3 className="text-3xl font-bold text-navy-900">For Employers</h3>
+                <h3 className="text-3xl font-bold text-navy-900">For Companies</h3>
               </div>
               <ul className="space-y-6">
                 <li className="flex items-start space-x-4">
@@ -255,14 +256,14 @@ const Recruitment = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <a
-              href="/#contact"
+              href="#contact"
               className="btn btn--primary group text-lg px-8 py-4"
             >
               Register as Employer
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
-              href="/#contact"
+              href="#contact"
               className="btn bg-white border-2 border-blue-500 text-blue-500 hover:bg-blue-50 hover:border-blue-600 transition-all duration-300 text-lg px-8 py-4"
             >
               Browse Jobs
@@ -270,6 +271,8 @@ const Recruitment = () => {
           </div>
         </div>
       </section>
+
+      <Contact />
     </div>
   );
 };

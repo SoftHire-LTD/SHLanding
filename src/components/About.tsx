@@ -57,12 +57,45 @@ const About = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-navy-900 mb-6">
             About SoftHire
           </h2>
-          <p className="text-xl text-charcoal-700 max-w-4xl mx-auto leading-relaxed">
-            We're building the future of regulatory compliance technology. Our platform transforms
-            complex regulatory requirements into streamlined, automated processes that save time,
-            reduce risk, and ensure accuracy.
+          <p className="text-xl text-charcoal-700 max-w-4xl mx-auto leading-relaxed mb-6">
+            At SoftHire, we make global hiring simple, compliant, and fast.
+            We help UK businesses unlock access to international talent by streamlining every step of
+            the journey — from applying for a sponsor licence, to staying compliant with Home Office
+            rules, to recruiting skilled workers from around the world. And we help deserving candidates
+            who want to bring their skills to the UK by matching them with relevant employers and
+            assisting them in their visa and relocation process.
+          </p>
+          <p className="text-lg text-charcoal-700 max-w-4xl mx-auto leading-relaxed mb-8">
+            Built by entrepreneurs with experience in law, compliance, and technology, SoftHire was
+            created to solve a pressing problem: UK companies face skill shortages but struggle with the
+            complexity of immigration compliance. Our platform combines automation, legal expertise,
+            and recruitment support so businesses can focus on growth — not red tape.
+          </p>
+
+          {/* Mission Statement */}
+          <div className="bg-gradient-to-br from-blue-50 to-mint-50 rounded-2xl p-8 border border-blue-200/30 max-w-3xl mx-auto mb-8">
+            <h3 className="text-2xl font-bold text-navy-900 mb-6">Our mission is clear:</h3>
+            <div className="space-y-4 text-left">
+              <div className="flex items-start space-x-3">
+                <div className="w-2 h-2 bg-blue-500 rounded-full mt-3 flex-shrink-0"></div>
+                <p className="text-lg text-charcoal-700">Enable businesses to hire the best people, wherever they are.</p>
+              </div>
+              <div className="flex items-start space-x-3">
+                <div className="w-2 h-2 bg-mint-500 rounded-full mt-3 flex-shrink-0"></div>
+                <p className="text-lg text-charcoal-700">Simplify compliance with smart, automated tools.</p>
+              </div>
+              <div className="flex items-start space-x-3">
+                <div className="w-2 h-2 bg-lavender-500 rounded-full mt-3 flex-shrink-0"></div>
+                <p className="text-lg text-charcoal-700">Bridge global talent gaps so the UK remains competitive in a fast-changing world.</p>
+              </div>
+            </div>
+          </div>
+
+          <p className="text-lg text-charcoal-700 font-medium">
+            If you are considering recruiting internationally – please get in touch.
           </p>
         </div>
+
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {values.map((value, index) => (

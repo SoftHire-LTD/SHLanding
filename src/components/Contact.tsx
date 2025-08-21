@@ -101,7 +101,7 @@ const Contact = () => {
                     </div>
                   </a>
 
-                <a href='https://www.google.com/maps/place/London,+United+Kingdom' target='_blank' className="flex items-center space-x-4 bg-white/70 backdrop-blur-sm rounded-xl p-6 border border-grey-200/50 hover:shadow-lg transition-all duration-300">
+                <a href='https://www.google.com/maps/place/London,+United+Kingdom' target='_blank' className="flex items-center space-x-4 bg-white/70 backdrop-blur-sm rounded-xl p-6 border border-grey-200/50 hover:shadow-lg transition-all duration-300 hidden">
                   <div className="bg-lavender-100 p-3 rounded-lg">
                     <MapPin className="h-6 w-6 text-lavender-600" />
                   </div>

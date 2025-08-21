@@ -5,26 +5,29 @@ const Products = () => {
     {
       icon: Users,
       title: 'Immigration Compliance',
-      description: 'Streamline visa tracking, right-to-work verification, and sponsor license management with automated workflows.',
+      description: 'Streamline and automate all aspects of Sponsor License compliance',
       status: 'Coming Soon',
       features: [
-        'Automated visa expiry tracking',
-        'Right-to-work verification',
-        'Sponsor license management',
-        'Compliance reporting dashboard'
+        'Right to Work Checks',
+        'Individual worker profiles, record-keeping',
+        'HRIS integration',
+        'automated real-time event-tracking and reporting',
+        'CoS Issuance/Renewals',
+        'Real-time regulatory updates'
       ],
+      link: '#contact',
       accentColor: 'mint'
     },
     {
       icon: ClipboardCheck,
-      title: 'Apply for Sponsor License',
-      description: 'Step-by-step assistance and efficient management of your sponsor license application.',
+      title: 'Apply for Sponsor Licence',
+      description: `End-to-end tech platform with step by step guidance and expert assistance on your sponsor licence application. Our technical expertise, online portal and on-going guidance can deliver a significant improvement in your application’s chances of success.`,
       status: 'Available Now',
       features: [
-        'Guided document preparation',
+        'Guided form filling',
         'Automated eligibility checks',
-        'Timeline and progress tracking',
-        'Expert support to reduce approval times'
+        'Minimum salary calculator',
+        'License fee calculator'
       ],
       link: '#contact',
       accentColor: 'lavender'
@@ -35,10 +38,12 @@ const Products = () => {
       description: 'Connect sponsor license holding companies with qualified candidates across software engineering, manufacturing, and medical practices.',
       status: 'Available Now',
       features: [
-        'Verified sponsor employers',
-        'Skills-based candidate matching',
-        'Visa application support',
-        'Industry-specific job boards'
+        'Vetted candidates from around the world',
+        'Ability to directly connect with candidates on online platform',
+        'Recruiter assistance on request',
+        'Candidates sorted by relevance',
+        'Assistance with post-offer next steps',
+        'Employee Visa assistance'
       ],
       link: '#contact',
       accentColor: 'aqua'
@@ -97,17 +102,16 @@ const Products = () => {
               key={index}
               className={`card ${getAccentClasses(product.accentColor)} hover:shadow-xl transition-all duration-500 flex flex-col group`}
             >
-              <div className="flex items-start mb-6">
+              <div className="flex items-center mb-6">
                 <div className={`${getIconBg(product.accentColor)} p-4 rounded-xl mr-4 group-hover:scale-110 transition-transform duration-300`}>
                   <product.icon className="h-8 w-8" />
                 </div>
-                <div className="flex-1">
+                <div className="flex-1 ">
                   <h3 className="text-2xl font-bold text-navy-900 mb-3">{product.title}</h3>
-                  <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
-                    product.status === 'Available Now'
-                      ? 'bg-green-100 text-green-800 border border-green-200'
-                      : 'bg-grey-200 text-charcoal-700 border border-grey-300'
-                  }`}>
+                  <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium hidden ${product.status === 'Available Now'
+                    ? 'bg-green-100 text-green-800 border border-green-200'
+                    : 'bg-grey-200 text-charcoal-700 border border-grey-300'
+                    }`}>
                     <Clock className="h-4 w-4 mr-1" />
                     {product.status}
                   </span>
