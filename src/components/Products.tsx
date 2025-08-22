@@ -3,6 +3,22 @@ import { Users, Clock, Shield, UserCheck, ClipboardCheck } from 'lucide-react';
 const Products = () => {
   const products = [
     {
+      icon: ClipboardCheck,
+      title: 'Apply for Sponsor Licence',
+      description: `End-to-end tech platform with step-by-step guidance and expert assistanceon your sponsor licence application.`,
+      status: 'Available Now',
+      features: [
+        'Guided form filling',
+        'Automated eligibility checks',
+        'Automated eligibility checks',
+        'License fee calculator',
+        'Automated document checks',
+        'Qualified legal review”'
+      ],
+      link: '#contact',
+      accentColor: 'lavender'
+    },
+    {
       icon: Users,
       title: 'Immigration Compliance',
       description: 'Streamline and automate all aspects of Sponsor License compliance',
@@ -19,23 +35,9 @@ const Products = () => {
       accentColor: 'mint'
     },
     {
-      icon: ClipboardCheck,
-      title: 'Apply for Sponsor Licence',
-      description: `End-to-end tech platform with step by step guidance and expert assistance on your sponsor licence application. Our technical expertise, online portal and on-going guidance can deliver a significant improvement in your application’s chances of success.`,
-      status: 'Available Now',
-      features: [
-        'Guided form filling',
-        'Automated eligibility checks',
-        'Minimum salary calculator',
-        'License fee calculator'
-      ],
-      link: '#contact',
-      accentColor: 'lavender'
-    },
-    {
       icon: UserCheck,
       title: 'Sponsored Recruitment Platform',
-      description: 'Connect sponsor license holding companies with qualified candidates across software engineering, manufacturing, and medical practices.',
+      description: 'A platform to connect talented candidates with UK Sponsor Licence holders:',
       status: 'Available Now',
       features: [
         'Vetted candidates from around the world',
@@ -118,11 +120,11 @@ const Products = () => {
                 </div>
               </div>
 
-              <p className="text-charcoal-700 mb-6 text-lg leading-relaxed flex-grow">
+              <p className="text-charcoal-700 h-24 text-lg leading-relaxed flex-grow">
                 {product.description}
               </p>
 
-              <div className="space-y-3 mb-8">
+              <div className="space-y-3 h-72 mb-8">
                 <h4 className="font-semibold text-navy-900 mb-4 text-lg">Key Features:</h4>
                 {product.features.map((feature, featureIndex) => (
                   <div key={featureIndex} className="flex items-start space-x-3">

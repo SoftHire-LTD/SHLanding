@@ -1,5 +1,4 @@
 import { Linkedin, Twitter, Mail } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -16,9 +15,10 @@ const Footer = () => {
           {/* Company Info */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-2 mb-6">
-              <span className="font-sans text-3xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+              <span className="font-sans text-3xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent hidden">
                 SoftHire
               </span>
+              <img src="/SoftHire_footer.svg" alt="SoftHire Logo" className="h-8" />
             </div>
             <p className="text-blue-200 mb-8 max-w-md text-lg leading-relaxed">
               Automating regulatory reporting end-to-end, from data collection to submission.
@@ -83,14 +83,24 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <Link to="/" className="text-blue-200 hover:text-white transition-colors duration-300 hover:translate-x-1 transform inline-block">
+                <a
+                  href="/privacy-policy.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-200 hover:text-white transition-colors duration-300 hover:translate-x-1 transform inline-block"
+                >
                   Privacy Policy
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/" className="text-blue-200 hover:text-white transition-colors duration-300 hover:translate-x-1 transform inline-block">
+                <a
+                  href="/privacy-policy.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-200 hover:text-white transition-colors duration-300 hover:translate-x-1 transform inline-block"
+                >
                   Terms of Service
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
