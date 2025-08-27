@@ -94,7 +94,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="/privacy-policy.pdf"
+                  href="/terms-of-service.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-200 hover:text-white transition-colors duration-300 hover:translate-x-1 transform inline-block"
