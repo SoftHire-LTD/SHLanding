@@ -18,7 +18,7 @@ const Footer = () => {
               <span className="font-sans text-3xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent hidden">
                 SoftHire
               </span>
-              <img src="/logo.png" alt="SoftHire Logo" className="h-8" />
+              <img src="/SoftHire_footer.svg" alt="SoftHire Logo" className="h-8" />
             </div>
             <p className="text-blue-200 mb-8 max-w-md text-lg leading-relaxed">
               Automating regulatory reporting end-to-end, from data collection to submission.
