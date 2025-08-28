@@ -19,7 +19,7 @@ const Contact = () => {
 
     try {
       const response = await fetch(
-        import.meta.env.VITE_CONTACT_ENDPOINT ? import.meta.env.VITE_CONTACT_ENDPOINT + '/support/contact-us' : 'https://support-service-api.azurewebsites.net/support/contact-us',
+        import.meta.env.VITE_CONTACT_ENDPOINT + '/support/contact-us',
         {
           method: 'POST',
           headers: {
