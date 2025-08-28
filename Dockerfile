@@ -1,6 +1,10 @@
 # Single-stage Dockerfile for SHLanding React Application
 FROM node:20-alpine
 
+ARG VITE_CONTACT_ENDPOINT
+
+ENV VITE_CONTACT_ENDPOINT=$VITE_CONTACT_ENDPOINT
+
 # Set working directory
 WORKDIR /app
 

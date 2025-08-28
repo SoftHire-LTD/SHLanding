@@ -1,7 +1,7 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import TalentSection from './components/TalentSection';
 import Products from './components/Products';
 import About from './components/About';
 import Contact from './components/Contact';
@@ -11,6 +11,7 @@ import Recruitment from './components/Recruitment';
 const HomePage = () => (
   <>
     <Hero />
+    <TalentSection />
     <Products />
     <About />
     <Contact />
@@ -20,7 +21,7 @@ const HomePage = () => (
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-grey-100">
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />

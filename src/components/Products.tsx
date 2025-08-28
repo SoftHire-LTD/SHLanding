@@ -1,68 +1,98 @@
-import React from 'react';
 import { Users, Clock, Shield, UserCheck, ClipboardCheck } from 'lucide-react';
 
 const Products = () => {
   const products = [
     {
-      icon: Users,
-      title: 'Immigration Compliance',
-      description: 'Streamline visa tracking, right-to-work verification, and sponsor license management with automated workflows.',
-      status: 'Coming Soon',
-      features: [
-        'Automated visa expiry tracking',
-        'Right-to-work verification',
-        'Sponsor license management',
-        'Compliance reporting dashboard'
-      ]
-    },
-    {
       icon: ClipboardCheck,
-      title: 'Apply for Sponsor License',
-      description: 'Step-by-step assistance and efficient management of your sponsor license application.',
+      title: 'Apply for Sponsor Licence',
+      description: `End-to-end tech platform with step-by-step guidance and expert assistanceon your sponsor licence application.`,
       status: 'Available Now',
       features: [
-        'Guided document preparation',
+        'Guided form filling',
         'Automated eligibility checks',
-        'Timeline and progress tracking',
-        'Expert support to reduce approval times'
+        'Automated eligibility checks',
+        'License fee calculator',
+        'Automated document checks',
+        'Qualified legal review”'
       ],
-      link: '#contact'
+      link: '#contact',
+      accentColor: 'lavender'
+    },
+    {
+      icon: Users,
+      title: 'Immigration Compliance',
+      description: 'Streamline and automate all aspects of Sponsor License compliance',
+      status: 'Coming Soon',
+      features: [
+        'Right to Work Checks',
+        'Individual worker profiles, record-keeping',
+        'HRIS integration',
+        'automated real-time event-tracking and reporting',
+        'CoS Issuance/Renewals',
+        'Real-time regulatory updates'
+      ],
+      link: '#contact',
+      accentColor: 'mint'
     },
     {
       icon: UserCheck,
       title: 'Sponsored Recruitment Platform',
-      description: 'Connect sponsor license holding companies with qualified candidates across software engineering, manufacturing, and medical practices.',
+      description: 'A platform to connect talented candidates with UK Sponsor Licence holders:',
       status: 'Available Now',
       features: [
-        'Verified sponsor employers',
-        'Skills-based candidate matching',
-        'Visa application support',
-        'Industry-specific job boards'
+        'Vetted candidates from around the world',
+        'Ability to directly connect with candidates on online platform',
+        'Recruiter assistance on request',
+        'Candidates sorted by relevance',
+        'Assistance with post-offer next steps',
+        'Employee Visa assistance'
       ],
-      link: '#contact'
+      link: '#contact',
+      accentColor: 'aqua'
     }
   ];
 
+  const getAccentClasses = (color: string) => {
+    switch (color) {
+      case 'mint':
+        return 'border-mint-500/30 bg-gradient-to-br from-white to-mint-50';
+      case 'lavender':
+        return 'border-lavender-300/30 bg-gradient-to-br from-white to-lavender-50';
+      case 'aqua':
+        return 'border-aqua-200/30 bg-gradient-to-br from-white to-aqua-50';
+      default:
+        return 'border-grey-300 bg-white';
+    }
+  };
+
+  const getIconBg = (color: string) => {
+    switch (color) {
+      case 'mint':
+        return 'bg-mint-100 text-mint-600';
+      case 'lavender':
+        return 'bg-lavender-100 text-lavender-600';
+      case 'aqua':
+        return 'bg-aqua-100 text-aqua-600';
+      default:
+        return 'bg-blue-100 text-blue-600';
+    }
+  };
+
   return (
-    <section id="products" className="section section--brand py-24 bg-white dark:bg-primary-900">
-      <div className="container">
-        <div aria-hidden="true" style={{ lineHeight: 0 }}>
-          <svg
-            viewBox="0 0 1440 120"
-            preserveAspectRatio="none"
-            style={{ display: 'block', width: '100%', height: 'auto' }}
-          >
-            <path
-              d="M0,120 C360,0 1080,0 1440,120 L1440,0 L0,0 Z"
-              fill="#F9F9F9"
-            />
-          </svg>
-        </div>
+    <section id="products" className="section py-20 bg-grey-100 relative overflow-hidden">
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-10 right-10 w-40 h-40 bg-mint-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-10 w-32 h-32 bg-lavender-300/10 rounded-full blur-2xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-aqua-200/5 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="container relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary-900 dark:text-primary-100 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-navy-900 mb-6">
             Our Products
           </h2>
-          <p className="text-xl text-primary-600 dark:text-primary-200 max-w-3xl mx-auto">
+          <p className="text-xl text-charcoal-700 max-w-3xl mx-auto leading-relaxed">
             Specialized solutions for different regulatory domains, designed to eliminate manual processes
             and reduce compliance risk.
           </p>
@@ -72,35 +102,34 @@ const Products = () => {
           {products.map((product, index) => (
             <div
               key={index}
-              className="card bg-accent-100 dark:bg-primary-800 rounded-xl p-8 hover:shadow-lg transition-shadow duration-300 border border-accent-200 dark:border-primary-700 flex flex-col"
+              className={`card ${getAccentClasses(product.accentColor)} hover:shadow-xl transition-all duration-500 flex flex-col group`}
             >
               <div className="flex items-center mb-6">
-                <div className="bg-primary-200 dark:bg-primary-700 p-3 rounded-lg mr-4">
-                  <product.icon className="h-8 w-8 text-primary-700 dark:text-primary-200" />
+                <div className={`${getIconBg(product.accentColor)} p-4 rounded-xl mr-4 group-hover:scale-110 transition-transform duration-300`}>
+                  <product.icon className="h-8 w-8" />
                 </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-primary-900 dark:text-primary-100">{product.title}</h3>
-                  <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium mt-2 ${
-                    product.status === 'Available Now'
-                      ? 'bg-green-200 text-green-800'
-                      : 'bg-accent-300 text-primary-800'
-                  }`}>
+                <div className="flex-1 ">
+                  <h3 className="text-2xl font-bold text-navy-900 mb-3">{product.title}</h3>
+                  <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium hidden ${product.status === 'Available Now'
+                    ? 'bg-green-100 text-green-800 border border-green-200'
+                    : 'bg-grey-200 text-charcoal-700 border border-grey-300'
+                    }`}>
                     <Clock className="h-4 w-4 mr-1" />
                     {product.status}
                   </span>
                 </div>
               </div>
 
-              <p className="text-primary-600 dark:text-primary-200 mb-6 text-lg leading-relaxed flex-grow">
+              <p className="text-charcoal-700 h-24 text-lg leading-relaxed flex-grow">
                 {product.description}
               </p>
 
-              <div className="space-y-3">
-                <h4 className="font-semibold text-primary-900 dark:text-primary-100 mb-3">Key Features:</h4>
+              <div className="space-y-3 h-72 mb-8">
+                <h4 className="font-semibold text-navy-900 mb-4 text-lg">Key Features:</h4>
                 {product.features.map((feature, featureIndex) => (
-                  <div key={featureIndex} className="flex items-center space-x-3">
-                    <Shield className="h-4 w-4 text-accent-400 flex-shrink-0" />
-                    <span className="text-primary-700 dark:text-primary-200">{feature}</span>
+                  <div key={featureIndex} className="flex items-start space-x-3">
+                    <Shield className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
+                    <span className="text-charcoal-700 leading-relaxed">{feature}</span>
                   </div>
                 ))}
               </div>
@@ -108,14 +137,14 @@ const Products = () => {
               {product.link ? (
                 <a
                   href={product.link}
-                  className="mt-8 w-full bg-primary-700 dark:bg-primary-600 text-white py-3 px-6 rounded-xl hover:bg-primary-800 dark:hover:bg-primary-500 transition-colors font-semibold block text-center"
+                  className="mt-auto w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-4 px-6 rounded-xl hover:from-blue-600 hover:to-blue-700 transition-all duration-300 font-semibold block text-center transform hover:scale-105 hover:shadow-lg"
                 >
                   Learn More
                 </a>
               ) : (
                 <a
                   href="#contact"
-                  className="mt-8 w-full bg-primary-700 dark:bg-primary-600 text-white py-3 px-6 rounded-xl hover:bg-primary-800 dark:hover:bg-primary-500 transition-colors font-semibold block text-center"
+                  className="mt-auto w-full bg-gradient-to-r from-charcoal-700 to-charcoal-800 text-white py-4 px-6 rounded-xl hover:from-charcoal-800 hover:to-navy-900 transition-all duration-300 font-semibold block text-center transform hover:scale-105 hover:shadow-lg"
                 >
                   Get Notified
                 </a>
