@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { Send, Check, Mail, Phone, MapPin } from 'lucide-react';
+import { Send, Check, Mail, Phone, MapPin, CheckCircle } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,10 +9,14 @@ const Contact = () => {
     message: ''
   });
   const [subscribed, setSubscribed] = useState(false);
+  const [messageSent, setMessageSent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+
     try {
       const response = await fetch(
         import.meta.env.VITE_CONTACT_ENDPOINT ? import.meta.env.VITE_CONTACT_ENDPOINT + '/support/contact-us' : 'https://support-service-api.azurewebsites.net/support/contact-us',
@@ -32,11 +36,24 @@ const Contact = () => {
 
       if (response.ok) {
         console.log('Message sent');
+        setMessageSent(true);
+        setFormData({
+          name: '',
+          email: '',
+          companyName: '',
+          message: ''
+        });
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+          setMessageSent(false);
+        }, 5000);
       } else {
         console.error('Failed to send message');
       }
     } catch (err) {
       console.error('Failed to send message', err);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -91,7 +108,7 @@ const Contact = () => {
                   </div>
                 </a>
 
-                <a href="tel:+1234567890" className="flex items-center space-x-4 bg-white/70 backdrop-blur-sm rounded-xl p-6 border border-grey-200/50 hover:shadow-lg transition-all duration-300">
+                <a href="tel:+447404497570" className="flex items-center space-x-4 bg-white/70 backdrop-blur-sm rounded-xl p-6 border border-grey-200/50 hover:shadow-lg transition-all duration-300">
                   <div className="bg-mint-100 p-3 rounded-lg">
                     <Phone className="h-6 w-6 text-mint-600" />
                   </div>
@@ -131,6 +148,19 @@ const Contact = () => {
 
           {/* Contact Form */}
           <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-grey-200/50 shadow-xl">
+            {/* Success Message */}
+            {messageSent && (
+              <div className="mb-6 bg-gradient-to-r from-mint-50 to-mint-100 border border-mint-200 rounded-xl p-4 flex items-center space-x-3">
+                <div className="bg-mint-500 rounded-full p-1">
+                  <CheckCircle className="h-5 w-5 text-white" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-mint-700">Thank you!</h4>
+                  <p className="text-mint-600 text-sm">We will respond to you within 24 hours.</p>
+                </div>
+              </div>
+            )}
+
             <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold text-navy-900 mb-3">
@@ -194,10 +224,20 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-navy-900 to-charcoal-800 text-white py-4 px-6 rounded-xl hover:from-charcoal-800 hover:to-navy-800 transition-all duration-300 font-semibold flex items-center justify-center group transform hover:scale-105 hover:shadow-lg"
+                disabled={isSubmitting}
+                className="w-full bg-gradient-to-r from-navy-900 to-charcoal-800 text-white py-4 px-6 rounded-xl hover:from-charcoal-800 hover:to-navy-800 transition-all duration-300 font-semibold flex items-center justify-center group transform hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
-                Send Message
-                <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                {isSubmitting ? (
+                  <>
+                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    Send Message
+                    <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </>
+                )}
               </button>
             </form>
           </div>
