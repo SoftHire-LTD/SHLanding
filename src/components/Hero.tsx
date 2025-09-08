@@ -36,7 +36,7 @@ const Hero = () => {
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
-              href="#contact"
+              href="/candidates"
               className="btn text-white border-2 border-blue-300 hover:bg-blue-500/10 hover:border-blue-400 transition-all duration-300"
             >
               For Candidates
