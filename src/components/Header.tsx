@@ -14,6 +14,27 @@ const Header = () => {
             <span className="hidden font-sans text-2xl font-bold bg-gradient-to-r from-blue-500 to-navy-800 bg-clip-text text-transparent">
               SoftHire
             </span>
+            <div style={{ width: '35px' }}>
+              <div style={{ position: 'relative', paddingBottom: '152%', height: 0, overflow: 'hidden' }}>
+                <iframe
+                  id="myFrame"
+                  src="https://cdn2.yoshki.com/badgeframe?10"
+                  title="Yoshki Badge"
+                  style={{
+                    overflow: 'hidden',
+                    border: '0px',
+                    margin: '0px',
+                    padding: '0px',
+                    backgroundColor: 'transparent',
+                    top: '0px',
+                    left: '0px',
+                    width: '100%',
+                    height: '100%',
+                    position: 'absolute',
+                  }}
+                ></iframe>
+              </div>
+            </div>
             <img src="/logo.png" alt="SoftHire Logo" className="h-8 ml-2" />
           </div>
 
