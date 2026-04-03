@@ -24,7 +24,30 @@ const Footer = () => {
               Automating regulatory reporting end-to-end, from data collection to submission.
               Helping businesses navigate complex compliance requirements with confidence.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex items-center space-x-4">
+
+              {/* Yoshki Badge */}
+              <div className="ml-2 p-2 rounded-xl bg-white/10 backdrop-blur-sm border border-white/10 hover:border-blue-400/30 transition-all duration-300" style={{ width: '50px' }}>
+                <div style={{ position: 'relative', paddingBottom: '152%', height: 0, overflow: 'hidden' }}>
+                  <iframe
+                    id="myFrame"
+                    src="https://cdn2.yoshki.com/badgeframe?10"
+                    title="Yoshki Badge"
+                    style={{
+                      overflow: 'hidden',
+                      border: '0px',
+                      margin: '0px',
+                      padding: '0px',
+                      backgroundColor: 'transparent',
+                      top: '0px',
+                      left: '0px',
+                      width: '100%',
+                      height: '100%',
+                      position: 'absolute',
+                    }}
+                  ></iframe>
+                </div>
+              </div>
               <a
                 href="#"
                 className="p-3 rounded-xl bg-white/10 backdrop-blur-sm text-blue-200 hover:text-white hover:bg-blue-500/20 transition-all duration-300 border border-white/10 hover:border-blue-400/30"
@@ -43,6 +66,7 @@ const Footer = () => {
               >
                 <Mail className="h-6 w-6" />
               </a>
+
             </div>
           </div>
 
