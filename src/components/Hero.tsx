@@ -18,9 +18,35 @@ const Hero = () => {
             Recruitment */}
             RECRUIT GLOBAL TALENT.<br />
             AUTOMATE SPONSOR LICENCES.
-
-
           </h1>
+
+          {/* Yoshki Badge with explanation */}
+          <div className="flex justify-center mb-8">
+            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-white/5 to-white/10 backdrop-blur-sm rounded-lg px-5 py-2.5 border border-white/10 hover:border-white/20 transition-all">
+              <div style={{ width: '35px', flexShrink: 0 }}>
+                <div style={{ position: 'relative', paddingBottom: '152%', height: 0, overflow: 'hidden' }}>
+                  <iframe
+                    id="myFrame"
+                    src="https://cdn2.yoshki.com/badgeframe?10"
+                    title="Yoshki Badge"
+                    style={{
+                      overflow: 'hidden',
+                      border: '0px',
+                      margin: '0px',
+                      padding: '0px',
+                      backgroundColor: 'transparent',
+                      top: '0px',
+                      left: '0px',
+                      width: '100%',
+                      height: '100%',
+                      position: 'absolute',
+                    }}
+                  ></iframe>
+                </div>
+              </div>
+              <span className="text-blue-100 text-sm font-medium">Yoshki Certified Partner</span>
+            </div>
+          </div>
 
           <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed text-center max-w-3xl mx-auto hidden">
             SoftHire streamlines sponsor license applications and connects you with qualified global talent,
@@ -36,7 +62,7 @@ const Hero = () => {
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
-              href="#contact"
+              href="/candidates"
               className="btn text-white border-2 border-blue-300 hover:bg-blue-500/10 hover:border-blue-400 transition-all duration-300"
             >
               For Candidates
