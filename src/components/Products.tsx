@@ -1,4 +1,4 @@
-import { Users, Clock, Shield, UserCheck, ClipboardCheck } from 'lucide-react';
+import { Users, Clock, Shield, ClipboardCheck } from 'lucide-react';
 
 const Products = () => {
   const products = [
@@ -33,22 +33,6 @@ const Products = () => {
       ],
       link: '#contact',
       accentColor: 'mint'
-    },
-    {
-      icon: UserCheck,
-      title: 'Sponsored Recruitment Platform',
-      description: 'A platform to connect talented candidates with UK Sponsor Licence holders:',
-      status: 'Available Now',
-      features: [
-        'Vetted candidates from around the world',
-        'Ability to directly connect with candidates on online platform',
-        'Recruiter assistance on request',
-        'Candidates sorted by relevance',
-        'Assistance with post-offer next steps',
-        'Employee Visa assistance'
-      ],
-      link: '#contact',
-      accentColor: 'aqua'
     }
   ];
 
@@ -98,7 +82,7 @@ const Products = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
           {products.map((product, index) => (
             <div
               key={index}

@@ -43,17 +43,11 @@ const Header = () => {
             <a href="/#products" className="text-charcoal-800 hover:text-blue-500 transition-colors font-medium">
               Products
             </a>
-            <a href="/recruitment" className="text-charcoal-800 hover:text-blue-500 transition-colors font-medium">
-              Recruitment
-            </a>
             <a href="/#about" className="text-charcoal-800 hover:text-blue-500 transition-colors font-medium">
               About
             </a>
             <a href="#contact" className="text-charcoal-800 hover:text-blue-500 transition-colors font-medium">
               Contact
-            </a>
-            <a href="/recruitment" className="btn btn--primary text-white">
-              <span className="hidden md:inline text-white">Start Recruiting</span>
             </a>
           </nav>
 
@@ -73,20 +67,12 @@ const Header = () => {
               <a href="/#products" className="text-charcoal-800 hover:text-blue-500 transition-colors font-medium px-4 py-2">
                 Products
               </a>
-              <a href="/recruitment" className="text-charcoal-800 hover:text-blue-500 transition-colors font-medium px-4 py-2">
-                Recruitment
-              </a>
               <a href="/#about" className="text-charcoal-800 hover:text-blue-500 transition-colors font-medium px-4 py-2">
                 About
               </a>
               <a href="#contact" className="text-charcoal-800 hover:text-blue-500 transition-colors font-medium px-4 py-2">
                 Contact
               </a>
-              <div className="px-4">
-                <a href="/recruitment" className="btn btn--primary w-full ">
-                  <span className="text-white">Start Recruiting</span>
-                </a>
-              </div>
             </div>
           </div>
         )}

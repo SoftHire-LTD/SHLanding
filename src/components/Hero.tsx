@@ -50,22 +50,22 @@ const Hero = () => {
 
           <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed text-center max-w-3xl mx-auto hidden">
             SoftHire streamlines sponsor license applications and connects you with qualified global talent,
-            helping businesses navigate compliance and recruitment with confidence.
+            helping businesses navigate compliance with confidence.
           </p>
 
           <div className="hero-cta justify-center mb-12">
             <a
-              href="/recruitment"
+              href="/candidates"
               className="btn btn--primary group"
             >
-              For Companies
+              For Candidates
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
-              href="/candidates"
+              href="#contact"
               className="btn text-white border-2 border-blue-300 hover:bg-blue-500/10 hover:border-blue-400 transition-all duration-300"
             >
-              For Candidates
+              Contact Us
             </a>
           </div>
 

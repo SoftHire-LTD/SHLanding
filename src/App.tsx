@@ -6,7 +6,6 @@ import Products from './components/Products';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import Recruitment from './components/Recruitment';
 import CandidatesForm2 from './components/CandidatesForm2';
 
 const HomePage = () => (
@@ -26,7 +25,6 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/recruitment" element={<Recruitment />} />
           <Route path="/candidates" element={<CandidatesForm2 />} />
         </Routes>
         <Footer />

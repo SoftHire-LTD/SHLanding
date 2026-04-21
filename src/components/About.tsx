@@ -78,8 +78,8 @@ const About = () => {
               <p className="text-lg text-charcoal-700 leading-relaxed">
                 Built by entrepreneurs with experience in <span className="font-semibold text-mint-600">law, compliance, and technology</span>, SoftHire was
                 created to solve a pressing problem: UK companies face skill shortages but struggle with the
-                complexity of immigration compliance. Our platform combines automation, legal expertise,
-                and recruitment support so businesses can focus on <span className="font-semibold text-lavender-600">growth — not red tape</span>.
+                complexity of immigration compliance. Our platform combines automation and legal expertise
+                so businesses can focus on <span className="font-semibold text-lavender-600">growth — not red tape</span>.
               </p>
             </div>
           </div>
