@@ -84,11 +84,6 @@ const Footer = () => {
                   Sponsor License Application
                 </a>
               </li>
-              <li>
-                <a href="#" className="text-blue-200 hover:text-white transition-colors duration-300 hover:translate-x-1 transform inline-block">
-                  Recruitment Platform
-                </a>
-              </li>
             </ul>
           </div>
 
