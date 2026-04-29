@@ -21,7 +21,7 @@ const HomePage = () => (
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-grey-100">
+      <div className="min-h-screen" style={{ background: '#0B1736' }}>
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />

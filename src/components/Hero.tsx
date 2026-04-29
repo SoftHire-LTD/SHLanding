@@ -2,85 +2,145 @@ import { ArrowRight, CheckCircle } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="section section--dark section--decorative py-24 md:py-32 relative overflow-hidden">
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-32 h-32 bg-mint-500/20 rounded-full blur-xl floating-element"></div>
-        <div className="absolute top-40 right-20 w-24 h-24 bg-lavender-300/20 rounded-full blur-xl floating-element" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute bottom-20 left-1/4 w-28 h-28 bg-aqua-200/20 rounded-full blur-xl floating-element" style={{ animationDelay: '4s' }}></div>
-      </div>
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center overflow-hidden pt-20"
+      style={{ background: 'linear-gradient(135deg, #0B1736 0%, #0E1F45 50%, #122050 100%)' }}
+      aria-labelledby="hero-heading"
+    >
+      {/* Grid overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `linear-gradient(rgba(100,149,237,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(100,149,237,0.06) 1px, transparent 1px)`,
+          backgroundSize: '60px 60px',
+          maskImage: 'radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 100%)',
+        }}
+        aria-hidden="true"
+      />
+      {/* Glow blobs */}
+      <div className="absolute top-[-200px] right-[-200px] w-[700px] h-[700px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(46,100,200,0.18) 0%, transparent 70%)' }} aria-hidden="true" />
+      <div className="absolute bottom-[-100px] left-[10%] w-[500px] h-[500px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(232,168,48,0.09) 0%, transparent 70%)' }} aria-hidden="true" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
-          <h1 className="h-display text-white mb-6 text-center">
-            {/* Simplify <br className="md:hidden" />
-            Sponsorship <span className="text-blue-500 bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">Compliance</span> &
-            Recruitment */}
-            RECRUIT GLOBAL TALENT.<br />
-            AUTOMATE SPONSOR LICENCES.
-          </h1>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-16 md:py-24">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left: Content */}
+          <div className="flex flex-col">
+            {/* Eyebrow */}
+            <p className="flex items-center gap-3 text-amber-400 text-sm font-semibold uppercase tracking-widest mb-6">
+              <span className="block w-6 h-px bg-amber-400" aria-hidden="true" />
+              UK-Regulated Global Mobility
+            </p>
 
-          {/* Yoshki Badge with explanation */}
-          <div className="flex justify-center mb-8">
-            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-white/5 to-white/10 backdrop-blur-sm rounded-lg px-5 py-2.5 border border-white/10 hover:border-white/20 transition-all">
-              <div style={{ width: '35px', flexShrink: 0 }}>
+            <h1 id="hero-heading" className="font-bold text-white leading-tight tracking-tight mb-6" style={{ fontFamily: "'Syne', 'Inter', sans-serif", fontSize: 'clamp(2.8rem, 6vw, 5.5rem)' }}>
+              UK visas.<br />
+              Handled by <span className="text-amber-400">experts.</span><br />
+              Powered by <span className="text-teal-400">technology.</span>
+            </h1>
+
+            <p className="text-lg text-white/70 leading-relaxed mb-8 max-w-xl font-light">
+              SoftHire is the UK's smartest immigration service — IAA-regulated visa support for international students, employers hiring global talent, and anyone navigating the UK system.
+            </p>
+
+            {/* Yoshki Certified Partner */}
+            <div className="flex items-center gap-3 mb-8 bg-white/5 backdrop-blur-sm rounded-xl px-4 py-3 border border-white/10 w-fit">
+              <div style={{ width: '28px', flexShrink: 0 }}>
                 <div style={{ position: 'relative', paddingBottom: '152%', height: 0, overflow: 'hidden' }}>
                   <iframe
-                    id="myFrame"
                     src="https://cdn2.yoshki.com/badgeframe?10"
-                    title="Yoshki Badge"
+                    title="Yoshki Certified Partner Badge"
                     style={{
-                      overflow: 'hidden',
-                      border: '0px',
-                      margin: '0px',
-                      padding: '0px',
-                      backgroundColor: 'transparent',
-                      top: '0px',
-                      left: '0px',
-                      width: '100%',
-                      height: '100%',
-                      position: 'absolute',
+                      overflow: 'hidden', border: '0px', margin: '0px', padding: '0px',
+                      backgroundColor: 'transparent', top: '0px', left: '0px',
+                      width: '100%', height: '100%', position: 'absolute',
                     }}
-                  ></iframe>
+                  />
                 </div>
               </div>
-              <span className="text-blue-100 text-sm font-medium">Yoshki Certified Partner</span>
+              <span className="text-white/80 text-sm font-medium">Yoshki Certified Partner</span>
+            </div>
+
+            {/* CTAs */}
+            <div className="flex flex-wrap gap-4 mb-10">
+              <a
+                href="/#contact"
+                className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-navy-900 font-semibold text-base px-7 py-3.5 rounded-full transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl"
+                style={{ color: '#0B1736' }}
+              >
+                Start your journey
+                <ArrowRight className="h-4 w-4" />
+              </a>
+              <a
+                href="/#how-it-works"
+                className="inline-flex items-center gap-2 text-white/60 hover:text-white text-base font-medium transition-colors duration-200"
+              >
+                <span className="w-7 h-7 rounded-full border border-white/30 flex items-center justify-center text-xs" aria-hidden="true">▶</span>
+                See how it works
+              </a>
+            </div>
+
+            {/* Trust badges */}
+            <div className="flex flex-wrap gap-3">
+              {[
+                'IAA Regulated',
+                'University Trusted',
+                'Fixed Fees',
+                'Student Specialists',
+              ].map((badge) => (
+                <span
+                  key={badge}
+                  className="inline-flex items-center gap-2 text-xs font-medium text-white/60 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-teal-400 flex-shrink-0" aria-hidden="true" />
+                  {badge}
+                </span>
+              ))}
             </div>
           </div>
 
-          <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed text-center max-w-3xl mx-auto hidden">
-            SoftHire streamlines sponsor license applications and connects you with qualified global talent,
-            helping businesses navigate compliance with confidence.
-          </p>
-
-          <div className="hero-cta justify-center mb-12">
-            <a
-              href="/candidates"
-              className="btn btn--primary group"
+          {/* Right: Stats panel */}
+          <div className="hidden lg:flex flex-col gap-4 items-end">
+            {/* 97% badge */}
+            <div
+              className="text-center px-6 py-5 rounded-2xl text-navy-900 font-bold shadow-2xl"
+              style={{ background: 'linear-gradient(135deg, #E8A830, #D4920A)' }}
+              aria-label="97 percent UK visa success rate"
             >
-              For Candidates
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href="#contact"
-              className="btn text-white border-2 border-blue-300 hover:bg-blue-500/10 hover:border-blue-400 transition-all duration-300"
-            >
-              Contact Us
-            </a>
-          </div>
+              <span className="block text-4xl font-extrabold leading-none">97%</span>
+              <span className="text-sm mt-1 block opacity-80">Visa Success Rate</span>
+            </div>
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <div className="flex items-center justify-center space-x-3 text-blue-100 bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10">
-              <CheckCircle className="h-6 w-6 text-mint-400 flex-shrink-0" />
-              <span className="font-medium">Efficient Sponsor License Applications</span>
-            </div>
-            <div className="flex items-center justify-center space-x-3 text-blue-100 bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10">
-              <CheckCircle className="h-6 w-6 text-mint-400 flex-shrink-0" />
-              <span className="font-medium">Global Talent Matching</span>
-            </div>
-            <div className="flex items-center justify-center space-x-3 text-blue-100 bg-white/5 backdrop-blur-sm rounded-lg p-4 border border-white/10">
-              <CheckCircle className="h-6 w-6 text-mint-400 flex-shrink-0" />
-              <span className="font-medium">Real-time Compliance</span>
+            {[
+              { num: '2,400+', label: 'Students reached the UK with SoftHire' },
+              { num: '3 wks', label: 'Average time contact-to-submission' },
+              { num: 'IAA', label: 'UK Immigration Advice Authority regulated' },
+            ].map(({ num, label }) => (
+              <div
+                key={num}
+                className="bg-white/5 border border-white/10 rounded-2xl px-6 py-5 min-w-[200px] backdrop-blur-sm hover:border-amber-400/30 transition-all duration-300"
+              >
+                <div className="text-amber-400 font-extrabold text-2xl leading-none" style={{ fontFamily: "'Syne', sans-serif" }}>{num}</div>
+                <div className="text-white/50 text-xs mt-1 leading-snug">{label}</div>
+              </div>
+            ))}
+
+            {/* Feature checklist */}
+            <div className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-5 backdrop-blur-sm mt-2">
+              <p className="text-white/60 text-xs uppercase tracking-wider mb-3 font-semibold">All Visa Types Supported</p>
+              {[
+                'UK Student Visa',
+                'Graduate Visa',
+                'Skilled Worker Visa',
+                'Dependant Visa',
+                'Sponsor Licence',
+                'Compliance Retainer',
+              ].map((v) => (
+                <div key={v} className="flex items-center gap-2 text-white/70 text-sm py-1">
+                  <CheckCircle className="h-4 w-4 text-teal-400 flex-shrink-0" />
+                  {v}
+                </div>
+              ))}
             </div>
           </div>
         </div>
