@@ -1,139 +1,74 @@
-import { Users, Clock, Shield, ClipboardCheck } from 'lucide-react';
+﻿import { useState } from 'react';
+import { ArrowRight } from 'lucide-react';
+
+type FilterType = 'all' | 'students' | 'employers' | 'employees';
+
+interface VisaCard {
+  type: string;
+  name: string;
+  desc: string;
+  price: string;
+  categories: FilterType[];
+  link: string;
+}
+
+const visaCards: VisaCard[] = [
+  { type: 'Students', name: 'UK Student Visa', desc: 'Full-service application management from CAS number to biometrics. We work with students applying from anywhere in the world.', price: 'From £299 fixed fee', categories: ['students'], link: '#contact' },
+  { type: 'Students + Partners', name: 'Dependant Visa', desc: 'Bring your partner or family to the UK alongside your student visa. Bundled with your main application for a seamless process.', price: 'From £249 per dependant', categories: ['students'], link: '#contact' },
+  { type: 'Post-Study', name: 'Graduate Visa', desc: 'Stay in the UK and work for 2 years after graduation. We handle this for existing clients at near-zero effort.', price: 'From £199 fixed fee', categories: ['students'], link: '#contact' },
+  { type: 'Employers', name: 'Sponsor Licence', desc: 'Get your UK Sponsor Licence so you can hire international talent. Our gateway product — everything else follows from this.', price: 'From £1,500 fixed fee', categories: ['employers'], link: '#contact' },
+  { type: 'Employers + Employees', name: 'Skilled Worker Visa', desc: 'End-to-end management of Skilled Worker Visa applications for each sponsored employee. Trackable, transparent, fast.', price: 'From £800 per application', categories: ['employers', 'employees'], link: '#contact' },
+  { type: 'Employees', name: 'Certificate of Sponsorship', desc: 'Expert guidance on Certificate of Sponsorship requirements, ensuring your COS is issued correctly and on time.', price: 'Included with Skilled Worker', categories: ['employees'], link: '#contact' },
+  { type: 'Employers — Ongoing', name: 'Compliance Retainer', desc: 'Stay audit-ready with ongoing sponsor licence compliance management — reporting duties, visa expiry alerts, and document management.', price: 'From £300/month', categories: ['employers'], link: '#contact' },
+  { type: 'Personal', name: 'Personal & Family Visa', desc: 'Support for personal and family visas including spouse, partner, and dependant applications for those joining family in the UK.', price: 'From £249 fixed fee', categories: ['employees'], link: '#contact' },
+];
+
+const filters: { label: string; value: FilterType }[] = [
+  { label: 'All', value: 'all' },
+  { label: 'Students', value: 'students' },
+  { label: 'Employers', value: 'employers' },
+  { label: 'Employees', value: 'employees' },
+];
 
 const Products = () => {
-  const products = [
-    {
-      icon: ClipboardCheck,
-      title: 'Apply for Sponsor Licence',
-      description: `End-to-end tech platform with step-by-step guidance and expert assistanceon your sponsor licence application.`,
-      status: 'Available Now',
-      features: [
-        'Guided form filling',
-        'Automated eligibility checks',
-        'Automated eligibility checks',
-        'License fee calculator',
-        'Automated document checks',
-        'Qualified legal review”'
-      ],
-      link: '#contact',
-      accentColor: 'lavender'
-    },
-    {
-      icon: Users,
-      title: 'Immigration Compliance',
-      description: 'Streamline and automate all aspects of Sponsor License compliance',
-      status: 'Coming Soon',
-      features: [
-        'Right to Work Checks',
-        'Individual worker profiles, record-keeping',
-        'HRIS integration',
-        'automated real-time event-tracking and reporting',
-        'CoS Issuance/Renewals',
-        'Real-time regulatory updates'
-      ],
-      link: '#contact',
-      accentColor: 'mint'
-    }
-  ];
-
-  const getAccentClasses = (color: string) => {
-    switch (color) {
-      case 'mint':
-        return 'border-mint-500/30 bg-gradient-to-br from-white to-mint-50';
-      case 'lavender':
-        return 'border-lavender-300/30 bg-gradient-to-br from-white to-lavender-50';
-      case 'aqua':
-        return 'border-aqua-200/30 bg-gradient-to-br from-white to-aqua-50';
-      default:
-        return 'border-grey-300 bg-white';
-    }
-  };
-
-  const getIconBg = (color: string) => {
-    switch (color) {
-      case 'mint':
-        return 'bg-mint-100 text-mint-600';
-      case 'lavender':
-        return 'bg-lavender-100 text-lavender-600';
-      case 'aqua':
-        return 'bg-aqua-100 text-aqua-600';
-      default:
-        return 'bg-blue-100 text-blue-600';
-    }
-  };
+  const [activeFilter, setActiveFilter] = useState<FilterType>('all');
+  const visible = visaCards.filter((c) => activeFilter === 'all' || c.categories.includes(activeFilter));
 
   return (
-    <section id="products" className="section py-20 bg-grey-100 relative overflow-hidden">
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-10 right-10 w-40 h-40 bg-mint-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-10 w-32 h-32 bg-lavender-300/10 rounded-full blur-2xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-aqua-200/5 rounded-full blur-3xl"></div>
-      </div>
-
-      <div className="container relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-navy-900 mb-6">
-            Our Products
+    <section id="visas" className="py-24 relative overflow-hidden" style={{ background: '#0E1F45' }}>
+      <div className="absolute top-0 right-0 w-96 h-96 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(232,168,48,0.07) 0%, transparent 70%)' }} aria-hidden="true" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="mb-12">
+          <p className="text-amber-400 text-xs font-semibold uppercase tracking-widest mb-3">Our Services</p>
+          <h2 className="text-white font-bold leading-tight tracking-tight mb-2" style={{ fontFamily: "'Syne', 'Inter', sans-serif", fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
+            Every UK visa type.<br /><span className="text-amber-400">One platform.</span>
           </h2>
-          <p className="text-xl text-charcoal-700 max-w-3xl mx-auto leading-relaxed">
-            Specialized solutions for different regulatory domains, designed to eliminate manual processes
-            and reduce compliance risk.
+          <p className="text-white/60 text-base leading-relaxed mt-3 max-w-xl">
+            From first-time student visas to employer sponsor licences — we handle every application end-to-end with fixed fees and no hidden surprises.
           </p>
         </div>
-
-        <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {products.map((product, index) => (
-            <div
-              key={index}
-              className={`card ${getAccentClasses(product.accentColor)} hover:shadow-xl transition-all duration-500 flex flex-col group`}
-            >
-              <div className="flex items-center mb-6">
-                <div className={`${getIconBg(product.accentColor)} p-4 rounded-xl mr-4 group-hover:scale-110 transition-transform duration-300`}>
-                  <product.icon className="h-8 w-8" />
-                </div>
-                <div className="flex-1 ">
-                  <h3 className="text-2xl font-bold text-navy-900 mb-3">{product.title}</h3>
-                  <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium hidden ${product.status === 'Available Now'
-                    ? 'bg-green-100 text-green-800 border border-green-200'
-                    : 'bg-grey-200 text-charcoal-700 border border-grey-300'
-                    }`}>
-                    <Clock className="h-4 w-4 mr-1" />
-                    {product.status}
-                  </span>
-                </div>
-              </div>
-
-              <p className="text-charcoal-700 h-24 text-lg leading-relaxed flex-grow">
-                {product.description}
-              </p>
-
-              <div className="space-y-3 h-72 mb-8">
-                <h4 className="font-semibold text-navy-900 mb-4 text-lg">Key Features:</h4>
-                {product.features.map((feature, featureIndex) => (
-                  <div key={featureIndex} className="flex items-start space-x-3">
-                    <Shield className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
-                    <span className="text-charcoal-700 leading-relaxed">{feature}</span>
-                  </div>
-                ))}
-              </div>
-
-              {product.link ? (
-                <a
-                  href={product.link}
-                  className="mt-auto w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-4 px-6 rounded-xl hover:from-blue-600 hover:to-blue-700 transition-all duration-300 font-semibold block text-center transform hover:scale-105 hover:shadow-lg"
-                >
-                  Learn More
+        <div className="flex flex-wrap gap-2 mb-10" role="tablist" aria-label="Filter visa types by audience">
+          {filters.map((f) => (
+            <button key={f.value} role="tab" aria-selected={activeFilter === f.value} onClick={() => setActiveFilter(f.value)}
+              className={`text-sm font-medium px-5 py-2 rounded-full border transition-all duration-200 ${activeFilter === f.value ? 'bg-amber-400 border-amber-400 font-semibold' : 'bg-transparent text-white/60 border-white/20 hover:border-amber-400/50 hover:text-white'}`}
+              style={activeFilter === f.value ? { color: '#0B1736' } : {}}>
+              {f.label}
+            </button>
+          ))}
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {visible.map((card) => (
+            <article key={card.name} className="rounded-2xl border border-white/10 p-6 flex flex-col transition-all duration-300 hover:border-amber-400/25 hover:-translate-y-1" style={{ background: '#172859' }}>
+              <p className="text-amber-400 text-xs font-semibold uppercase tracking-wider mb-2">{card.type}</p>
+              <h3 className="text-white font-bold text-lg mb-2 leading-snug">{card.name}</h3>
+              <p className="text-white/60 text-sm leading-relaxed flex-grow">{card.desc}</p>
+              <div className="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
+                <span className="text-white/50 text-xs">{card.price}</span>
+                <a href={card.link} className="inline-flex items-center gap-1.5 text-amber-400 hover:text-amber-300 text-sm font-semibold transition-colors" aria-label={`Get started with ${card.name}`}>
+                  Get started <ArrowRight className="h-3.5 w-3.5" />
                 </a>
-              ) : (
-                <a
-                  href="#contact"
-                  className="mt-auto w-full bg-gradient-to-r from-charcoal-700 to-charcoal-800 text-white py-4 px-6 rounded-xl hover:from-charcoal-800 hover:to-navy-900 transition-all duration-300 font-semibold block text-center transform hover:scale-105 hover:shadow-lg"
-                >
-                  Get Notified
-                </a>
-              )}
-            </div>
+              </div>
+            </article>
           ))}
         </div>
       </div>
