@@ -1,4 +1,5 @@
 ﻿import { Linkedin, Twitter, Mail } from 'lucide-react';
+import { trackFooterClick, trackContactLinkClick } from '../lib/analytics';
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -37,13 +38,13 @@ const Footer = () => {
                   />
                 </div>
               </div>
-              <a href="#" className="p-2.5 rounded-xl bg-white/8 border border-white/15 text-white/60 hover:text-white hover:bg-blue-500/20 transition-all duration-200">
+              <a href="#" className="p-2.5 rounded-xl bg-white/8 border border-white/15 text-white/60 hover:text-white hover:bg-blue-500/20 transition-all duration-200" onClick={() => trackFooterClick('social_linkedin')}>
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="#" className="p-2.5 rounded-xl bg-white/8 border border-white/15 text-white/60 hover:text-white hover:bg-blue-500/20 transition-all duration-200">
+              <a href="#" className="p-2.5 rounded-xl bg-white/8 border border-white/15 text-white/60 hover:text-white hover:bg-blue-500/20 transition-all duration-200" onClick={() => trackFooterClick('social_twitter')}>
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="mailto:support@softhire.com" className="p-2.5 rounded-xl bg-white/8 border border-white/15 text-white/60 hover:text-white hover:bg-blue-500/20 transition-all duration-200">
+              <a href="mailto:support@softhire.com" className="p-2.5 rounded-xl bg-white/8 border border-white/15 text-white/60 hover:text-white hover:bg-blue-500/20 transition-all duration-200" onClick={() => trackContactLinkClick('email')}>
                 <Mail className="h-5 w-5" />
               </a>
             </div>
@@ -58,7 +59,7 @@ const Footer = () => {
                 'Skilled Worker Visa', 'Sponsor Licence', 'Compliance Retainer',
               ].map((s) => (
                 <li key={s}>
-                  <a href="#visas" className="text-white/50 hover:text-amber-400 text-sm transition-colors duration-200">{s}</a>
+                  <a href="#visas" className="text-white/50 hover:text-amber-400 text-sm transition-colors duration-200" onClick={() => trackFooterClick(`service_${s.toLowerCase().replace(/ /g, '_')}`)}>{s}</a>
                 </li>
               ))}
             </ul>
@@ -73,7 +74,7 @@ const Footer = () => {
                 'Partners & Dependants', 'UK Employers', 'Employees Relocating',
               ].map((s) => (
                 <li key={s}>
-                  <a href="#who-we-help" className="text-white/50 hover:text-amber-400 text-sm transition-colors duration-200">{s}</a>
+                  <a href="#who-we-help" className="text-white/50 hover:text-amber-400 text-sm transition-colors duration-200" onClick={() => trackFooterClick(`who_${s.toLowerCase().replace(/ /g, '_')}`)}>{s}</a>
                 </li>
               ))}
             </ul>
@@ -91,7 +92,7 @@ const Footer = () => {
                 { label: 'Terms of Service', href: '/terms-of-service.pdf' },
               ].map(({ label, href }) => (
                 <li key={label}>
-                  <a href={href} className="text-white/50 hover:text-amber-400 text-sm transition-colors duration-200">{label}</a>
+                  <a href={href} className="text-white/50 hover:text-amber-400 text-sm transition-colors duration-200" onClick={() => trackFooterClick(`company_${label.toLowerCase().replace(/ /g, '_')}`)}>{label}</a>
                 </li>
               ))}
             </ul>

@@ -1,5 +1,6 @@
 ﻿import { useState, useRef } from 'react';
 import { Send, Check, Mail, Phone, CheckCircle, ArrowRight } from 'lucide-react';
+import { trackCTAClick, trackContactLinkClick, trackFormSubmit, trackEvent } from '../lib/analytics';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', companyName: '', message: '' });
@@ -19,10 +20,14 @@ const Contact = () => {
       if (response.ok) {
         setMessageSent(true);
         setFormData({ name: '', email: '', companyName: '', message: '' });
+        trackFormSubmit(true);
         setTimeout(() => setMessageSent(false), 5000);
+      } else {
+        trackFormSubmit(false);
       }
     } catch (err) {
       console.error('Failed to send message', err);
+      trackFormSubmit(false);
     } finally {
       setIsSubmitting(false);
     }
@@ -34,6 +39,7 @@ const Contact = () => {
 
   const handleSubscribe = () => {
     setSubscribed(true);
+    trackEvent('subscribe_click', { event_category: 'engagement', event_label: 'mailing_list' });
     formRef.current?.scrollIntoView({ behavior: 'smooth' });
     formRef.current?.querySelector('input')?.focus();
   };
@@ -45,8 +51,12 @@ const Contact = () => {
     <>
       {/* CTA STRIP */}
       <aside
-        className="py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden" style={{ borderTop: '1px solid rgba(232,168,48,0.2)', borderBottom: '1px solid rgba(232,168,48,0.2)' }}
-        style={{ background: 'linear-gradient(135deg, #1a3a8f 0%, #0B1736 50%, #1a3a8f 100%)' }}
+        className="py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden"
+        style={{
+          background: 'linear-gradient(135deg, #1a3a8f 0%, #0B1736 50%, #1a3a8f 100%)',
+          borderTop: '1px solid rgba(232,168,48,0.2)',
+          borderBottom: '1px solid rgba(232,168,48,0.2)',
+        }}
         aria-label="Get started with SoftHire"
       >
         <div className="absolute right-[-100px] top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(232,168,48,0.12) 0%, transparent 70%)' }} aria-hidden="true" />
@@ -58,10 +68,10 @@ const Contact = () => {
             <p className="text-white/60 mt-2 text-base">Free consultation. No commitment. Clear next steps in 24 hours.</p>
           </div>
           <div className="flex flex-wrap gap-3 flex-shrink-0">
-            <a href="#contact" className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-navy-900 font-semibold px-7 py-3.5 rounded-full transition-all duration-200 hover:-translate-y-0.5 whitespace-nowrap" style={{ color: '#0B1736' }}>
+            <a href="#contact" className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-navy-900 font-semibold px-7 py-3.5 rounded-full transition-all duration-200 hover:-translate-y-0.5 whitespace-nowrap" style={{ color: '#0B1736' }} onClick={() => trackCTAClick('book_free_call', 'cta_strip')}>
               Book a free call <ArrowRight className="h-4 w-4" />
             </a>
-            <a href="https://wa.me/00447585198493" rel="noopener noreferrer" target="_blank" className="inline-flex items-center gap-2 bg-white/8 hover:bg-white/15 text-white border border-white/20 font-semibold px-7 py-3.5 rounded-full transition-all duration-200 hover:-translate-y-0.5 whitespace-nowrap">
+            <a href="https://wa.me/00447585198493" rel="noopener noreferrer" target="_blank" className="inline-flex items-center gap-2 bg-white/8 hover:bg-white/15 text-white border border-white/20 font-semibold px-7 py-3.5 rounded-full transition-all duration-200 hover:-translate-y-0.5 whitespace-nowrap" onClick={() => trackContactLinkClick('whatsapp')}>
               WhatsApp us
             </a>
           </div>
@@ -90,7 +100,7 @@ const Contact = () => {
             <div className="space-y-6">
               <h3 className="text-white font-bold text-2xl">Let us Connect</h3>
 
-              <a href="mailto:support@softhire.com" className="flex items-center gap-4 rounded-xl px-5 py-4 border border-white/10 hover:border-amber-400/30 transition-all duration-200 group" style={{ background: '#172859' }}>
+              <a href="mailto:support@softhire.com" className="flex items-center gap-4 rounded-xl px-5 py-4 border border-white/10 hover:border-amber-400/30 transition-all duration-200 group" style={{ background: '#172859' }} onClick={() => trackContactLinkClick('email')}>
                 <div className="bg-amber-400/15 p-3 rounded-lg">
                   <Mail className="h-5 w-5 text-amber-400" />
                 </div>
@@ -100,7 +110,7 @@ const Contact = () => {
                 </div>
               </a>
 
-              <a href="tel:+447404497570" className="flex items-center gap-4 rounded-xl px-5 py-4 border border-white/10 hover:border-amber-400/30 transition-all duration-200 group" style={{ background: '#172859' }}>
+              <a href="tel:+447404497570" className="flex items-center gap-4 rounded-xl px-5 py-4 border border-white/10 hover:border-amber-400/30 transition-all duration-200 group" style={{ background: '#172859' }} onClick={() => trackContactLinkClick('phone')}>
                 <div className="bg-teal-400/15 p-3 rounded-lg">
                   <Phone className="h-5 w-5 text-teal-400" />
                 </div>

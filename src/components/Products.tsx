@@ -1,5 +1,6 @@
 ﻿import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
+import { trackVisaFilter, trackVisaCardClick } from '../lib/analytics';
 
 type FilterType = 'all' | 'students' | 'employers' | 'employees';
 
@@ -34,6 +35,11 @@ const Products = () => {
   const [activeFilter, setActiveFilter] = useState<FilterType>('all');
   const visible = visaCards.filter((c) => activeFilter === 'all' || c.categories.includes(activeFilter));
 
+  const handleFilterChange = (f: FilterType) => {
+    setActiveFilter(f);
+    trackVisaFilter(f);
+  };
+
   return (
     <section id="visas" className="py-24 relative overflow-hidden" style={{ background: '#0E1F45' }}>
       <div className="absolute top-0 right-0 w-96 h-96 rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(232,168,48,0.07) 0%, transparent 70%)' }} aria-hidden="true" />
@@ -49,7 +55,7 @@ const Products = () => {
         </div>
         <div className="flex flex-wrap gap-2 mb-10" role="tablist" aria-label="Filter visa types by audience">
           {filters.map((f) => (
-            <button key={f.value} role="tab" aria-selected={activeFilter === f.value} onClick={() => setActiveFilter(f.value)}
+            <button key={f.value} role="tab" aria-selected={activeFilter === f.value} onClick={() => handleFilterChange(f.value)}
               className={`text-sm font-medium px-5 py-2 rounded-full border transition-all duration-200 ${activeFilter === f.value ? 'bg-amber-400 border-amber-400 font-semibold' : 'bg-transparent text-white/60 border-white/20 hover:border-amber-400/50 hover:text-white'}`}
               style={activeFilter === f.value ? { color: '#0B1736' } : {}}>
               {f.label}
@@ -64,7 +70,7 @@ const Products = () => {
               <p className="text-white/60 text-sm leading-relaxed flex-grow">{card.desc}</p>
               <div className="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
                 <span className="text-white/50 text-xs">{card.price}</span>
-                <a href={card.link} className="inline-flex items-center gap-1.5 text-amber-400 hover:text-amber-300 text-sm font-semibold transition-colors" aria-label={`Get started with ${card.name}`}>
+                <a href={card.link} className="inline-flex items-center gap-1.5 text-amber-400 hover:text-amber-300 text-sm font-semibold transition-colors" aria-label={`Get started with ${card.name}`} onClick={() => trackVisaCardClick(card.name)}>
                   Get started <ArrowRight className="h-3.5 w-3.5" />
                 </a>
               </div>
