@@ -1,4 +1,5 @@
 import { ArrowRight, CheckCircle } from 'lucide-react';
+import { trackCTAClick, trackNavClick } from '../lib/analytics';
 
 const Hero = () => {
   return (
@@ -67,6 +68,7 @@ const Hero = () => {
                 href="/#contact"
                 className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-navy-900 font-semibold text-base px-7 py-3.5 rounded-full transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl"
                 style={{ color: '#0B1736' }}
+                onClick={() => trackCTAClick('start_your_journey', 'hero')}
               >
                 Start your journey
                 <ArrowRight className="h-4 w-4" />
@@ -74,6 +76,7 @@ const Hero = () => {
               <a
                 href="/#how-it-works"
                 className="inline-flex items-center gap-2 text-white/60 hover:text-white text-base font-medium transition-colors duration-200"
+                onClick={() => trackNavClick('see_how_it_works_hero')}
               >
                 <span className="w-7 h-7 rounded-full border border-white/30 flex items-center justify-center text-xs" aria-hidden="true">▶</span>
                 See how it works
