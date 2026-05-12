@@ -61,7 +61,7 @@ const Contact = () => {
             <a href="#contact" className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-navy-900 font-semibold px-7 py-3.5 rounded-full transition-all duration-200 hover:-translate-y-0.5 whitespace-nowrap" style={{ color: '#0B1736' }}>
               Book a free call <ArrowRight className="h-4 w-4" />
             </a>
-            <a href="https://wa.me/447404497570" rel="noopener noreferrer" target="_blank" className="inline-flex items-center gap-2 bg-white/8 hover:bg-white/15 text-white border border-white/20 font-semibold px-7 py-3.5 rounded-full transition-all duration-200 hover:-translate-y-0.5 whitespace-nowrap">
+            <a href="https://wa.me/00447585198493" rel="noopener noreferrer" target="_blank" className="inline-flex items-center gap-2 bg-white/8 hover:bg-white/15 text-white border border-white/20 font-semibold px-7 py-3.5 rounded-full transition-all duration-200 hover:-translate-y-0.5 whitespace-nowrap">
               WhatsApp us
             </a>
           </div>
