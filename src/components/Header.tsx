@@ -22,11 +22,11 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Brand */}
-          <a href="/" className="flex items-center gap-2" aria-label="SoftHire home" onClick={() => trackNavClick('logo_home')}>
-            <img src="/logo.png" alt="SoftHire Logo" className="h-8" />
-            <span className="font-bold text-xl text-white tracking-tight hidden sm:block">
-              Soft<span className="text-amber-400">Hire</span>
-            </span>
+          <a href="/" className="flex items-center" aria-label="SoftHire home" onClick={() => trackNavClick('logo_home')}>
+            <div className="flex items-center gap-2 bg-white rounded px-3 py-1.5">
+              <span className="flex items-center justify-center w-6 h-6 rounded bg-navy-900 text-white font-extrabold text-sm leading-none">S</span>
+              <span className="font-bold text-base text-navy-900 tracking-tight">SoftHire</span>
+            </div>
           </a>
 
           {/* Desktop Navigation */}
