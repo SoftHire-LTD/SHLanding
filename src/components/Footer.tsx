@@ -15,9 +15,11 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-10 mb-14">
           {/* Brand */}
           <div className="md:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <img src="/SoftHire_footer.svg" alt="SoftHire Logo" className="h-7" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
-              <span className="font-bold text-xl text-white hidden sm:block">Soft<span className="text-amber-400">Hire</span></span>
+            <div className="flex items-center mb-4">
+              <div className="flex items-center gap-2 bg-white rounded px-3 py-1.5">
+                <span className="flex items-center justify-center w-6 h-6 rounded bg-navy-900 text-white font-extrabold text-sm leading-none">S</span>
+                <span className="font-bold text-base text-navy-900 tracking-tight">SoftHire</span>
+              </div>
             </div>
             <p className="text-white/50 text-sm leading-relaxed mb-5 max-w-xs">
               Global Mobility. Made Human. UK-regulated immigration services for students, employers, and employees.
