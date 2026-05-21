@@ -8,6 +8,10 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CandidatesForm2 from './components/CandidatesForm2';
+import BlogIndex from './components/pages/blog/BlogIndex';
+import SponsorLicenceSuspended from './components/pages/blog/SponsorLicenceSuspended';
+import WhySponsorLicencesRevoked from './components/pages/blog/WhySponsorLicencesRevoked';
+import ComplianceVisitPreparation from './components/pages/blog/ComplianceVisitPreparation';
 import ImmigrationCompliancePage from './components/pages/ImmigrationCompliancePage';
 import SponsorLicenceCareHomesPage from './components/pages/SponsorLicenceCareHomesPage';
 import SponsorLicenceRestaurantsPage from './components/pages/SponsorLicenceRestaurantsPage';
@@ -86,6 +90,10 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/candidates" element={<CandidatesForm2 />} />
+          <Route path="/blog" element={<BlogIndex />} />
+          <Route path="/blog/sponsor-licence-suspended-what-happens" element={<SponsorLicenceSuspended />} />
+          <Route path="/blog/why-sponsor-licences-get-revoked" element={<WhySponsorLicencesRevoked />} />
+          <Route path="/blog/home-office-compliance-visit-preparation" element={<ComplianceVisitPreparation />} />
           <Route path="/immigration-compliance" element={<ImmigrationCompliancePage />} />
           <Route path="/sponsor-licence-care-homes" element={<SponsorLicenceCareHomesPage />} />
           <Route path="/sponsor-licence-restaurants" element={<SponsorLicenceRestaurantsPage />} />

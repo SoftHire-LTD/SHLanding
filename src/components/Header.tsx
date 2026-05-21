@@ -47,6 +47,9 @@ const Header = () => {
             <a href="/#visas" className="text-white/70 hover:text-white transition-colors text-sm font-medium uppercase tracking-wider" onClick={() => trackNavClick('visa_types')}>
               Visa Types
             </a>
+            <Link to="/blog" className="text-white/70 hover:text-white transition-colors text-sm font-medium uppercase tracking-wider" onClick={() => trackNavClick('blog')}>
+              Blog
+            </Link>
             {/* Sectors dropdown */}
             <div className="relative" onMouseEnter={() => setSectorsOpen(true)} onMouseLeave={() => setSectorsOpen(false)}>
               <button
@@ -131,6 +134,9 @@ const Header = () => {
               <a href="/#visas" className="text-white/70 hover:text-white transition-colors font-medium px-4 py-3 rounded-lg hover:bg-white/5" onClick={() => { setIsMenuOpen(false); trackNavClick('mobile_visa_types'); }}>
                 Visa Types
               </a>
+              <Link to="/blog" className="text-white/70 hover:text-white transition-colors font-medium px-4 py-3 rounded-lg hover:bg-white/5" onClick={() => { setIsMenuOpen(false); trackNavClick('mobile_blog'); }}>
+                Blog
+              </Link>
               <div className="px-4 py-2">
                 <p className="text-xs font-bold uppercase tracking-widest text-white/30 mb-1">Sectors</p>
                 {SECTOR_LINKS.map(({ to, label }) => (
