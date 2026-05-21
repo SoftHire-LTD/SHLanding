@@ -1,4 +1,5 @@
 ﻿import { Linkedin, Twitter, Mail } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { trackFooterClick, trackContactLinkClick } from '../lib/analytics';
 
 const Footer = () => {
@@ -12,7 +13,7 @@ const Footer = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-16">
-        <div className="grid md:grid-cols-4 gap-10 mb-14">
+        <div className="grid md:grid-cols-5 gap-10 mb-14">
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="flex items-center mb-4">
@@ -62,6 +63,24 @@ const Footer = () => {
               ].map((s) => (
                 <li key={s}>
                   <a href="#visas" className="text-white/50 hover:text-amber-400 text-sm transition-colors duration-200" onClick={() => trackFooterClick(`service_${s.toLowerCase().replace(/ /g, '_')}`)}>{s}</a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* Sectors */}
+          <nav aria-label="Sectors">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-white mb-4">Sectors</h3>
+            <ul className="flex flex-col gap-3">
+              {[
+                { to: '/sponsor-licence-care-homes', label: 'Care Homes' },
+                { to: '/sponsor-licence-restaurants', label: 'Restaurants & Hospitality' },
+                { to: '/sponsor-licence-tech-startups', label: 'Tech Startups' },
+                { to: '/sponsor-licence-universities', label: 'Universities' },
+                { to: '/immigration-compliance', label: 'Recruitment Agencies' },
+              ].map(({ to, label }) => (
+                <li key={to}>
+                  <Link to={to} className="text-white/50 hover:text-amber-400 text-sm transition-colors duration-200" onClick={() => trackFooterClick(`sector_${label.toLowerCase().replace(/ /g, '_')}`)}>{label}</Link>
                 </li>
               ))}
             </ul>

@@ -8,6 +8,11 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CandidatesForm2 from './components/CandidatesForm2';
+import ImmigrationCompliancePage from './components/pages/ImmigrationCompliancePage';
+import SponsorLicenceCareHomesPage from './components/pages/SponsorLicenceCareHomesPage';
+import SponsorLicenceRestaurantsPage from './components/pages/SponsorLicenceRestaurantsPage';
+import SponsorLicenceTechStartupsPage from './components/pages/SponsorLicenceTechStartupsPage';
+import SponsorLicenceUniversitiesPage from './components/pages/SponsorLicenceUniversitiesPage';
 import { trackPageView, trackScrollDepth } from './lib/analytics';
 
 // ── Page-view tracker (fires on every route change) ───────────────────────────
@@ -40,6 +45,26 @@ function ScrollDepthTracker() {
   return null;
 }
 
+// ── Hash scroll handler (scrolls to hash target after SPA navigation) ────────
+function HashScrollHandler() {
+  const location = useLocation();
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.slice(1);
+      const scrollToEl = () => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      };
+      scrollToEl();
+      const t = setTimeout(scrollToEl, 80);
+      return () => clearTimeout(t);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [location.pathname, location.hash]);
+  return null;
+}
+
 const HomePage = () => (
   <>
     <Hero />
@@ -55,11 +80,17 @@ function App() {
     <Router>
       <PageViewTracker />
       <ScrollDepthTracker />
+      <HashScrollHandler />
       <div className="min-h-screen" style={{ background: '#0B1736' }}>
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/candidates" element={<CandidatesForm2 />} />
+          <Route path="/immigration-compliance" element={<ImmigrationCompliancePage />} />
+          <Route path="/sponsor-licence-care-homes" element={<SponsorLicenceCareHomesPage />} />
+          <Route path="/sponsor-licence-restaurants" element={<SponsorLicenceRestaurantsPage />} />
+          <Route path="/sponsor-licence-tech-startups" element={<SponsorLicenceTechStartupsPage />} />
+          <Route path="/sponsor-licence-universities" element={<SponsorLicenceUniversitiesPage />} />
         </Routes>
         <Footer />
       </div>
