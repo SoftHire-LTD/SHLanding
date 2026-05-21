@@ -41,10 +41,10 @@ const Footer = () => {
                   />
                 </div>
               </div>
-              <a href="#" className="p-2.5 rounded-xl bg-white/8 border border-white/15 text-white/60 hover:text-white hover:bg-blue-500/20 transition-all duration-200" onClick={() => trackFooterClick('social_linkedin')}>
+              <a href="https://www.linkedin.com/company/soft-hire/" className="p-2.5 rounded-xl bg-white/8 border border-white/15 text-white/60 hover:text-white hover:bg-blue-500/20 transition-all duration-200" onClick={() => trackFooterClick('social_linkedin')}>
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="#" className="p-2.5 rounded-xl bg-white/8 border border-white/15 text-white/60 hover:text-white hover:bg-blue-500/20 transition-all duration-200" onClick={() => trackFooterClick('social_twitter')}>
+              <a href="https://twitter.com/soft_hire" className="p-2.5 rounded-xl bg-white/8 border border-white/15 text-white/60 hover:text-white hover:bg-blue-500/20 transition-all duration-200" onClick={() => trackFooterClick('social_twitter')}>
                 <Twitter className="h-5 w-5" />
               </a>
               <a href="mailto:support@softhire.com" className="p-2.5 rounded-xl bg-white/8 border border-white/15 text-white/60 hover:text-white hover:bg-blue-500/20 transition-all duration-200" onClick={() => trackContactLinkClick('email')}>
