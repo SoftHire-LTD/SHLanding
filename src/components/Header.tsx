@@ -1,10 +1,20 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { trackNavClick, trackCTAClick } from '../lib/analytics';
+
+const SECTOR_LINKS = [
+  { to: '/sponsor-licence-care-homes', label: 'Care Homes' },
+  { to: '/sponsor-licence-restaurants', label: 'Restaurants & Hospitality' },
+  { to: '/sponsor-licence-tech-startups', label: 'Tech Startups' },
+  { to: '/sponsor-licence-universities', label: 'Universities' },
+  { to: '/immigration-compliance', label: 'Recruitment Agencies' },
+];
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [sectorsOpen, setSectorsOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -37,6 +47,31 @@ const Header = () => {
             <a href="/#visas" className="text-white/70 hover:text-white transition-colors text-sm font-medium uppercase tracking-wider" onClick={() => trackNavClick('visa_types')}>
               Visa Types
             </a>
+            {/* Sectors dropdown */}
+            <div className="relative" onMouseEnter={() => setSectorsOpen(true)} onMouseLeave={() => setSectorsOpen(false)}>
+              <button
+                className="flex items-center gap-1 text-white/70 hover:text-white transition-colors text-sm font-medium uppercase tracking-wider bg-transparent border-none cursor-pointer"
+                onClick={() => setSectorsOpen((v) => !v)}
+                aria-haspopup="true"
+                aria-expanded={sectorsOpen}
+              >
+                Sectors <ChevronDown className={`h-3.5 w-3.5 transition-transform ${sectorsOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {sectorsOpen && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 bg-navy-900/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-xl overflow-hidden z-50">
+                  {SECTOR_LINKS.map(({ to, label }) => (
+                    <Link
+                      key={to}
+                      to={to}
+                      className="block px-4 py-3 text-sm text-white/70 hover:text-amber-400 hover:bg-white/5 transition-colors"
+                      onClick={() => { setSectorsOpen(false); trackNavClick(`sector_${label.toLowerCase().replace(/ /g, '_')}`); }}
+                    >
+                      {label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
             <a href="/#about" className="text-white/70 hover:text-white transition-colors text-sm font-medium uppercase tracking-wider" onClick={() => trackNavClick('about')}>
               About
             </a>
@@ -94,6 +129,19 @@ const Header = () => {
               <a href="/#visas" className="text-white/70 hover:text-white transition-colors font-medium px-4 py-3 rounded-lg hover:bg-white/5" onClick={() => { setIsMenuOpen(false); trackNavClick('mobile_visa_types'); }}>
                 Visa Types
               </a>
+              <div className="px-4 py-2">
+                <p className="text-xs font-bold uppercase tracking-widest text-white/30 mb-1">Sectors</p>
+                {SECTOR_LINKS.map(({ to, label }) => (
+                  <Link
+                    key={to}
+                    to={to}
+                    className="block text-white/60 hover:text-amber-400 transition-colors text-sm py-2 pl-2"
+                    onClick={() => { setIsMenuOpen(false); trackNavClick(`mobile_sector_${label.toLowerCase().replace(/ /g, '_')}`); }}
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </div>
               <a href="/#about" className="text-white/70 hover:text-white transition-colors font-medium px-4 py-3 rounded-lg hover:bg-white/5" onClick={() => { setIsMenuOpen(false); trackNavClick('mobile_about'); }}>
                 About
               </a>

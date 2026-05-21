@@ -117,3 +117,30 @@ export function trackFooterClick(label: string): void {
     event_label: label,
   });
 }
+
+/** Track a FAQ accordion item being opened (not closed). */
+export function trackFAQOpen(question: string, page: string): void {
+  trackEvent('faq_open', {
+    event_category: 'engagement',
+    event_label: question.substring(0, 100),
+    page_section: page,
+  });
+}
+
+/** Track a sector/related page internal link click. */
+export function trackSectorLinkClick(destination: string, source: string): void {
+  trackEvent('sector_link_click', {
+    event_category: 'navigation',
+    event_label: destination,
+    source_page: source,
+  });
+}
+
+/** Track a ghost / secondary anchor CTA click. */
+export function trackAnchorClick(label: string, page: string): void {
+  trackEvent('anchor_click', {
+    event_category: 'engagement',
+    event_label: label,
+    page_section: page,
+  });
+}
