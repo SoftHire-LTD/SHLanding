@@ -58,17 +58,19 @@ const Header = () => {
                 Sectors <ChevronDown className={`h-3.5 w-3.5 transition-transform ${sectorsOpen ? 'rotate-180' : ''}`} />
               </button>
               {sectorsOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 bg-navy-900/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-xl overflow-hidden z-50">
-                  {SECTOR_LINKS.map(({ to, label }) => (
-                    <Link
-                      key={to}
-                      to={to}
-                      className="block px-4 py-3 text-sm text-white/70 hover:text-amber-400 hover:bg-white/5 transition-colors"
-                      onClick={() => { setSectorsOpen(false); trackNavClick(`sector_${label.toLowerCase().replace(/ /g, '_')}`); }}
-                    >
-                      {label}
-                    </Link>
-                  ))}
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-56 z-50">
+                  <div className="bg-navy-900/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-xl overflow-hidden">
+                    {SECTOR_LINKS.map(({ to, label }) => (
+                      <Link
+                        key={to}
+                        to={to}
+                        className="block px-4 py-3 text-sm text-white/70 hover:text-amber-400 hover:bg-white/5 transition-colors"
+                        onClick={() => { setSectorsOpen(false); trackNavClick(`sector_${label.toLowerCase().replace(/ /g, '_')}`); }}
+                      >
+                        {label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
