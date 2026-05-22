@@ -144,3 +144,24 @@ export function trackAnchorClick(label: string, page: string): void {
     page_section: page,
   });
 }
+
+/** Track a blog article card click (from listing page or related articles). */
+export function trackBlogArticleClick(
+  slug: string,
+  source: 'listing' | 'related'
+): void {
+  trackEvent('blog_article_click', {
+    event_category: 'blog',
+    event_label: slug,
+    click_source: source,
+  });
+}
+
+/** Track a table-of-contents link click within a blog article. */
+export function trackTocClick(sectionId: string, articleSlug: string): void {
+  trackEvent('toc_click', {
+    event_category: 'blog',
+    event_label: sectionId,
+    page_section: articleSlug,
+  });
+}
