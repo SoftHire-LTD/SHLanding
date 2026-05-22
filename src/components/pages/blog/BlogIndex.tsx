@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Clock, Calendar } from 'lucide-react';
 import { BLOG_ARTICLES } from '../../../lib/blogData';
+import { trackBlogArticleClick } from '../../../lib/analytics';
 
 const C = {
   navy: '#0B1736',
@@ -115,6 +116,7 @@ export default function BlogIndex() {
                     textDecoration: 'none',
                     transition: 'border-color 0.2s',
                   }}
+                  onClick={() => trackBlogArticleClick(article.slug, 'listing')}
                   onMouseEnter={(e) => (e.currentTarget.style.borderColor = C.border)}
                   onMouseLeave={(e) => (e.currentTarget.style.borderColor = C.borderSubtle)}
                 >

@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ChevronDown, Calendar, Clock, User, ArrowRight } from 'lucide-react';
 import { type BlogArticleMeta, type FaqItem, getRelatedArticles } from '../../lib/blogData';
-import { trackCTAClick, trackFAQOpen } from '../../lib/analytics';
+import { trackCTAClick, trackFAQOpen, trackNavClick, trackBlogArticleClick, trackTocClick } from '../../lib/analytics';
 
 const BASE_URL = 'https://www.softhire.co.uk';
 
@@ -144,6 +144,7 @@ export default function BlogLayout({ meta, faqs, children }: BlogLayoutProps) {
                 <Link
                   to="/"
                   style={{ color: C.textMuted, fontSize: '0.8rem', textDecoration: 'none' }}
+                  onClick={() => trackNavClick('breadcrumb_home')}
                 >
                   Home
                 </Link>
@@ -153,6 +154,7 @@ export default function BlogLayout({ meta, faqs, children }: BlogLayoutProps) {
                 <Link
                   to="/blog"
                   style={{ color: C.textMuted, fontSize: '0.8rem', textDecoration: 'none' }}
+                  onClick={() => trackNavClick('breadcrumb_blog')}
                 >
                   Blog
                 </Link>
@@ -324,7 +326,7 @@ export default function BlogLayout({ meta, faqs, children }: BlogLayoutProps) {
                   >
                     <a
                       href={`#${section.id}`}
-                      onClick={() => setTocOpen(false)}
+                      onClick={() => { setTocOpen(false); trackTocClick(section.id, meta.slug); }}
                       style={{
                         display: 'flex',
                         alignItems: 'center',
@@ -542,6 +544,7 @@ export default function BlogLayout({ meta, faqs, children }: BlogLayoutProps) {
                     gap: '0.75rem',
                     transition: 'border-color 0.2s',
                   }}
+                  onClick={() => trackBlogArticleClick(article.slug, 'related')}
                   onMouseEnter={(e) => (e.currentTarget.style.borderColor = C.border)}
                   onMouseLeave={(e) =>
                     (e.currentTarget.style.borderColor = C.borderSubtle)
