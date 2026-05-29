@@ -23,7 +23,11 @@ import { trackPageView, trackScrollDepth } from './lib/analytics';
 function PageViewTracker() {
   const location = useLocation();
   useEffect(() => {
-    trackPageView(location.pathname + location.search, document.title);
+    // Defer by one tick so React Helmet has time to update document.title
+    const id = setTimeout(() => {
+      trackPageView(location.pathname + location.search, document.title);
+    }, 0);
+    return () => clearTimeout(id);
   }, [location]);
   return null;
 }
@@ -31,6 +35,14 @@ function PageViewTracker() {
 // ── Scroll-depth tracker (25 / 50 / 75 / 100 %) ──────────────────────────────
 function ScrollDepthTracker() {
   const fired = useRef(new Set<number>());
+  const location = useLocation();
+
+  // Reset milestones on every route change so each page is tracked independently
+  useEffect(() => {
+    fired.current.clear();
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
   useEffect(() => {
     const thresholds = [25, 50, 75, 100] as const;
     const onScroll = () => {

@@ -14,7 +14,8 @@ declare global {
   }
 }
 
-const GA_ID = import.meta.env.VITE_GA_MEASUREMENT_ID as string | undefined;
+// const GA_ID = import.meta.env.VITE_GA_MEASUREMENT_ID as string | undefined;
+const GA_ID = 'G-VPCTXGVYVD';
 
 /** Returns true if gtag is available and we have a Measurement ID. */
 function isReady(): boolean {
