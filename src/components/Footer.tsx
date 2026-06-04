@@ -1,4 +1,4 @@
-﻿import { Linkedin, Twitter, Mail } from 'lucide-react';
+﻿import { Linkedin, Twitter, Mail, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { trackFooterClick, trackContactLinkClick } from '../lib/analytics';
 
@@ -47,8 +47,11 @@ const Footer = () => {
               <a href="https://twitter.com/soft_hire" className="p-2.5 rounded-xl bg-white/8 border border-white/15 text-white/60 hover:text-white hover:bg-blue-500/20 transition-all duration-200" onClick={() => trackFooterClick('social_twitter')}>
                 <Twitter className="h-5 w-5" />
               </a>
-              <a href="mailto:support@softhire.com" className="p-2.5 rounded-xl bg-white/8 border border-white/15 text-white/60 hover:text-white hover:bg-blue-500/20 transition-all duration-200" onClick={() => trackContactLinkClick('email')}>
+              <a href="mailto:support@softhire.com" className="p-2.5 rounded-xl bg-white/8 border border-white/15 text-white/60 hover:text-white hover:bg-blue-500/20 transition-all duration-200" aria-label="Email SoftHire" onClick={() => trackContactLinkClick('email')}>
                 <Mail className="h-5 w-5" />
+              </a>
+              <a href="tel:+447404497570" className="p-2.5 rounded-xl bg-white/8 border border-white/15 text-white/60 hover:text-white hover:bg-teal-500/20 transition-all duration-200" aria-label="Call SoftHire" onClick={() => trackContactLinkClick('phone')}>
+                <Phone className="h-5 w-5" />
               </a>
             </div>
           </div>
@@ -116,6 +119,11 @@ const Footer = () => {
                   <a href={href} className="text-white/50 hover:text-amber-400 text-sm transition-colors duration-200" onClick={() => trackFooterClick(`company_${label.toLowerCase().replace(/ /g, '_')}`)}>{label}</a>
                 </li>
               ))}
+              <li>
+                <Link to="/candidates" className="text-white/50 hover:text-amber-400 text-sm transition-colors duration-200" onClick={() => trackFooterClick('candidates_apply')}>
+                  Apply as a Candidate
+                </Link>
+              </li>
             </ul>
           </nav>
         </div>

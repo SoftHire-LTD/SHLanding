@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import SEO from './components/SEO';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import TalentSection from './components/TalentSection';
@@ -8,6 +9,8 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CandidatesForm2 from './components/CandidatesForm2';
+import CookieBanner from './components/CookieBanner';
+import NotFound from './components/pages/NotFound';
 import BlogIndex from './components/pages/blog/BlogIndex';
 import SponsorLicenceSuspended from './components/pages/blog/SponsorLicenceSuspended';
 import WhySponsorLicencesRevoked from './components/pages/blog/WhySponsorLicencesRevoked';
@@ -17,7 +20,15 @@ import SponsorLicenceCareHomesPage from './components/pages/SponsorLicenceCareHo
 import SponsorLicenceRestaurantsPage from './components/pages/SponsorLicenceRestaurantsPage';
 import SponsorLicenceTechStartupsPage from './components/pages/SponsorLicenceTechStartupsPage';
 import SponsorLicenceUniversitiesPage from './components/pages/SponsorLicenceUniversitiesPage';
-import { trackPageView, trackScrollDepth } from './lib/analytics';
+import SponsorLicenceApplicationPage from './components/pages/SponsorLicenceApplicationPage';
+import SkilledWorkerEmployerPage from './components/pages/SkilledWorkerEmployerPage';
+import SponsorLicenceCompliancePage from './components/pages/SponsorLicenceCompliancePage';
+import SponsorLicenceCostPage from './components/pages/SponsorLicenceCostPage';
+import SponsorLicenceChecklistPage from './components/pages/SponsorLicenceChecklistPage';
+import CertificateOfSponsorshipPage from './components/pages/CertificateOfSponsorshipPage';
+import SponsorLicenceForeignCompaniesPage from './components/pages/SponsorLicenceForeignCompaniesPage';
+import { trackPageView, trackScrollDepth, trackCalendlyDateSelected, trackCalendlyBooked } from './lib/analytics';
+import { captureUTMs } from './lib/utm';
 
 // ── Page-view tracker (fires on every route change) ───────────────────────────
 function PageViewTracker() {
@@ -81,8 +92,22 @@ function HashScrollHandler() {
   return null;
 }
 
+// ── Trailing-slash normaliser — also serves as 404 handler ──────────────────
+function TrailingSlashRedirect() {
+  const { pathname, search, hash } = useLocation();
+  if (pathname !== '/' && pathname.endsWith('/')) {
+    return <Navigate to={`${pathname.slice(0, -1)}${search}${hash}`} replace />;
+  }
+  return <NotFound />;
+}
+
 const HomePage = () => (
   <>
+    <SEO
+      title="UK Visa & Immigration Services | Student, Skilled Worker, Sponsor Licence | SoftHire"
+      description="IAA-regulated UK immigration experts. Fixed-fee Student, Graduate, Skilled Worker visas and Sponsor Licences. 97% success rate. Free consultation in 24 hours."
+      path="/"
+    />
     <Hero />
     <TalentSection />
     <Products />
@@ -92,6 +117,25 @@ const HomePage = () => (
 );
 
 function App() {
+  useEffect(() => {
+    captureUTMs();
+  }, []);
+
+  // ── Calendly postMessage event listener ──────────────────────────────────
+  useEffect(() => {
+    const handler = (e: MessageEvent) => {
+      if (e.origin !== 'https://calendly.com') return;
+      const eventType: string = e.data?.event ?? '';
+      if (eventType === 'calendly.date_and_time_selected') {
+        trackCalendlyDateSelected();
+      } else if (eventType === 'calendly.event_scheduled') {
+        trackCalendlyBooked(e.data?.payload?.event_type?.name);
+      }
+    };
+    window.addEventListener('message', handler);
+    return () => window.removeEventListener('message', handler);
+  }, []);
+
   return (
     <Router>
       <PageViewTracker />
@@ -111,9 +155,19 @@ function App() {
           <Route path="/sponsor-licence-restaurants" element={<SponsorLicenceRestaurantsPage />} />
           <Route path="/sponsor-licence-tech-startups" element={<SponsorLicenceTechStartupsPage />} />
           <Route path="/sponsor-licence-universities" element={<SponsorLicenceUniversitiesPage />} />
+          <Route path="/sponsor-licence-application" element={<SponsorLicenceApplicationPage />} />
+          <Route path="/skilled-worker-visa-employer" element={<SkilledWorkerEmployerPage />} />
+          <Route path="/sponsor-licence-compliance" element={<SponsorLicenceCompliancePage />} />
+          <Route path="/sponsor-licence-cost" element={<SponsorLicenceCostPage />} />
+          <Route path="/sponsor-licence-checklist" element={<SponsorLicenceChecklistPage />} />
+          <Route path="/certificate-of-sponsorship" element={<CertificateOfSponsorshipPage />} />
+          <Route path="/sponsor-licence-for-foreign-companies" element={<SponsorLicenceForeignCompaniesPage />} />
+          {/* Redirect trailing slashes; serve 404 for unmatched routes */}
+          <Route path="*" element={<TrailingSlashRedirect />} />
         </Routes>
         <Footer />
       </div>
+      <CookieBanner />
     </Router>
   );
 }

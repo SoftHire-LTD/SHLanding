@@ -1,6 +1,7 @@
 ﻿import { useState, useRef } from 'react';
 import { Send, Check, Mail, Phone, CheckCircle, ArrowRight } from 'lucide-react';
 import { trackCTAClick, trackContactLinkClick, trackFormSubmit, trackEvent } from '../lib/analytics';
+import { getStoredUTMs } from '../lib/utm';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', companyName: '', message: '' });
@@ -15,7 +16,7 @@ const Contact = () => {
     try {
       const response = await fetch(
         import.meta.env.VITE_CONTACT_ENDPOINT + '/support/contact-us',
-        { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(formData) }
+        { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...formData, ...getStoredUTMs() }) }
       );
       if (response.ok) {
         setMessageSent(true);
@@ -176,6 +177,11 @@ const Contact = () => {
                     <>Send Message <Send className="h-4 w-4" /></>
                   )}
                 </button>
+                <p className="text-white/40 text-xs mt-3 text-center" style={{ lineHeight: 1.6 }}>
+                  By submitting this form you agree to our{' '}
+                  <a href="/privacy-policy.pdf" className="underline" style={{ color: 'rgba(201,168,76,0.8)' }}>Privacy Policy</a>
+                  {' '}and consent to SoftHire contacting you about your enquiry.
+                </p>
               </form>
             </div>
           </div>
