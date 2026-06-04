@@ -190,7 +190,7 @@ export default function BlogLayout({ meta, faqs, children }: BlogLayoutProps) {
                 border: `1px solid ${C.border}`,
               }}
             >
-              UK Immigration Law
+              {meta.category}
             </span>
           </div>
 
@@ -246,6 +246,24 @@ export default function BlogLayout({ meta, faqs, children }: BlogLayoutProps) {
               <Clock size={13} />
               {meta.readingTime} min read
             </span>
+            {meta.dateModified !== meta.datePublished && (
+              <span
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.4rem',
+                  color: C.textMuted,
+                  fontSize: '0.85rem',
+                }}
+              >
+                Last updated:{' '}
+                {new Date(meta.dateModified).toLocaleDateString('en-GB', {
+                  day: 'numeric',
+                  month: 'long',
+                  year: 'numeric',
+                })}
+              </span>
+            )}
           </div>
         </div>
       </section>
@@ -584,6 +602,95 @@ export default function BlogLayout({ meta, faqs, children }: BlogLayoutProps) {
                     }}
                   >
                     Read article <ArrowRight size={13} />
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ── Related service pages ────────────────────────────────────────────── */}
+      {meta.relatedServices && meta.relatedServices.length > 0 && (
+        <section
+          style={{
+            background: C.navyMid,
+            padding: '3.5rem 1.5rem',
+            borderTop: `1px solid ${C.borderSubtle}`,
+          }}
+        >
+          <div style={{ maxWidth: '52rem', margin: '0 auto' }}>
+            <div
+              style={{
+                fontSize: '0.72rem',
+                fontWeight: 700,
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                color: C.gold,
+                marginBottom: '1rem',
+              }}
+            >
+              Related Services
+            </div>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
+                gap: '1rem',
+              }}
+            >
+              {meta.relatedServices.map((svc) => (
+                <Link
+                  key={svc.path}
+                  to={svc.path}
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '0.5rem',
+                    padding: '1.25rem 1.5rem',
+                    background: C.card,
+                    border: `1px solid ${C.borderSubtle}`,
+                    borderRadius: '8px',
+                    textDecoration: 'none',
+                    transition: 'border-color 0.2s',
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.borderColor = C.border)}
+                  onMouseLeave={(e) => (e.currentTarget.style.borderColor = C.borderSubtle)}
+                >
+                  <p
+                    style={{
+                      margin: 0,
+                      fontFamily: 'Syne, sans-serif',
+                      fontWeight: 700,
+                      color: '#fff',
+                      fontSize: '0.95rem',
+                      lineHeight: 1.4,
+                    }}
+                  >
+                    {svc.title}
+                  </p>
+                  <p
+                    style={{
+                      margin: 0,
+                      color: C.textMuted,
+                      fontSize: '0.83rem',
+                      lineHeight: 1.6,
+                      flex: 1,
+                    }}
+                  >
+                    {svc.description}
+                  </p>
+                  <span
+                    style={{
+                      color: C.gold,
+                      fontSize: '0.83rem',
+                      fontWeight: 600,
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.3rem',
+                    }}
+                  >
+                    Learn more <ArrowRight size={13} />
                   </span>
                 </Link>
               ))}

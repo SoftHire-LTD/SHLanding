@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Clock, Calendar } from 'lucide-react';
@@ -17,7 +18,31 @@ const C = {
   card: '#0f1e45',
 };
 
+// All planned categories — appear in filter even before articles for each exist
+const ALL_CATEGORIES = [
+  'All',
+  'Sponsor Compliance',
+  'Sponsor Licence',
+  'Skilled Worker',
+  'Employer Guides',
+  'Immigration Updates',
+  'Sector Guides',
+];
+
 export default function BlogIndex() {
+  // Merge hardcoded list with any new categories that appear in articles
+  const articleCategories = Array.from(new Set(BLOG_ARTICLES.map((a) => a.category)));
+  const allCategories = [
+    ...ALL_CATEGORIES,
+    ...articleCategories.filter((c) => !ALL_CATEGORIES.includes(c)),
+  ];
+  const [activeCategory, setActiveCategory] = useState('All');
+
+  const filtered =
+    activeCategory === 'All'
+      ? BLOG_ARTICLES
+      : BLOG_ARTICLES.filter((a) => a.category === activeCategory);
+
   return (
     <>
       <Helmet>
@@ -93,11 +118,38 @@ export default function BlogIndex() {
         </div>
       </section>
 
+      {/* Category filter bar */}
+      <section style={{ background: C.navy, padding: '1.5rem 1.5rem 0', borderBottom: `1px solid ${C.borderSubtle}` }}>
+        <div style={{ maxWidth: '52rem', margin: '0 auto', display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+          {allCategories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              style={{
+                background: activeCategory === cat ? C.gold : 'transparent',
+                color: activeCategory === cat ? C.navy : C.textMuted,
+                border: `1px solid ${activeCategory === cat ? C.gold : C.borderSubtle}`,
+                padding: '0.375rem 1rem',
+                borderRadius: '9999px',
+                fontSize: '0.82rem',
+                fontWeight: 600,
+                cursor: 'pointer',
+                fontFamily: 'inherit',
+                transition: 'all 0.15s',
+                marginBottom: '0.75rem',
+              }}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      </section>
+
       {/* Article grid */}
       <section style={{ background: C.navy, padding: '4rem 1.5rem 6rem' }}>
         <div style={{ maxWidth: '52rem', margin: '0 auto' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            {BLOG_ARTICLES.map((article) => {
+            {filtered.map((article) => {
               const formattedDate = new Date(article.datePublished).toLocaleDateString('en-GB', {
                 day: 'numeric',
                 month: 'long',
@@ -142,7 +194,7 @@ export default function BlogIndex() {
                         border: `1px solid ${C.border}`,
                       }}
                     >
-                      UK Immigration Law
+                      {article.category}
                     </span>
                     <span
                       style={{

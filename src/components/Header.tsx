@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { trackNavClick, trackCTAClick } from '../lib/analytics';
+import BookMeetingButton from './BookMeetingButton';
 
 const SECTOR_LINKS = [
   { to: '/sponsor-licence-care-homes', label: 'Care Homes' },
@@ -11,15 +12,39 @@ const SECTOR_LINKS = [
   { to: '/immigration-compliance', label: 'Recruitment Agencies' },
 ];
 
+const SERVICE_LINKS = [
+  { to: '/sponsor-licence-application', label: 'Sponsor Licence Application' },
+  { to: '/skilled-worker-visa-employer', label: 'Skilled Worker Visa' },
+  { to: '/sponsor-licence-compliance', label: 'Compliance Retainer' },
+  { to: '/sponsor-licence-cost', label: 'Licence Cost Breakdown' },
+  { to: '/sponsor-licence-checklist', label: 'Application Checklist' },
+  { to: '/certificate-of-sponsorship', label: 'Certificate of Sponsorship' },
+  { to: '/sponsor-licence-for-foreign-companies', label: 'Foreign Companies' },
+];
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [sectorsOpen, setSectorsOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // Close dropdowns and mobile menu on Escape key
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSectorsOpen(false);
+        setServicesOpen(false);
+        setIsMenuOpen(false);
+      }
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
   }, []);
 
   return (
@@ -41,17 +66,55 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8" aria-label="Primary">
-            <a href="/#how-it-works" className="text-white/70 hover:text-white transition-colors text-sm font-medium uppercase tracking-wider" onClick={() => trackNavClick('how_it_works')}>
+            {/* <a href="/#how-it-works" className="text-white/70 hover:text-white transition-colors text-sm font-medium uppercase tracking-wider" onClick={() => trackNavClick('how_it_works')}>
               How It Works
             </a>
             <a href="/#visas" className="text-white/70 hover:text-white transition-colors text-sm font-medium uppercase tracking-wider" onClick={() => trackNavClick('visa_types')}>
               Visa Types
-            </a>
+            </a> */}
             <Link to="/blog" className="text-white/70 hover:text-white transition-colors text-sm font-medium uppercase tracking-wider" onClick={() => trackNavClick('blog')}>
               Blog
             </Link>
+            {/* Services dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setServicesOpen(true)}
+              onMouseLeave={() => setServicesOpen(false)}
+              onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget)) setServicesOpen(false); }}
+            >
+              <button
+                className="flex items-center gap-1 text-white/70 hover:text-white transition-colors text-sm font-medium uppercase tracking-wider bg-transparent border-none cursor-pointer"
+                onClick={() => setServicesOpen((v) => !v)}
+                aria-haspopup="true"
+                aria-expanded={servicesOpen}
+              >
+                Services <ChevronDown className={`h-3.5 w-3.5 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {servicesOpen && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-64 z-50">
+                  <div className="bg-navy-900/95 backdrop-blur-xl border border-white/10 rounded-xl shadow-xl overflow-hidden">
+                    {SERVICE_LINKS.map(({ to, label }) => (
+                      <Link
+                        key={to}
+                        to={to}
+                        className="block px-4 py-3 text-sm text-white/70 hover:text-amber-400 hover:bg-white/5 transition-colors"
+                        onClick={() => { setServicesOpen(false); trackNavClick(`service_${label.toLowerCase().replace(/ /g, '_')}`); }}
+                      >
+                        {label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
             {/* Sectors dropdown */}
-            <div className="relative" onMouseEnter={() => setSectorsOpen(true)} onMouseLeave={() => setSectorsOpen(false)}>
+            <div
+              className="relative"
+              onMouseEnter={() => setSectorsOpen(true)}
+              onMouseLeave={() => setSectorsOpen(false)}
+              onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget)) setSectorsOpen(false); }}
+            >
               <button
                 className="flex items-center gap-1 text-white/70 hover:text-white transition-colors text-sm font-medium uppercase tracking-wider bg-transparent border-none cursor-pointer"
                 onClick={() => setSectorsOpen((v) => !v)}
@@ -83,6 +146,11 @@ const Header = () => {
             <a href="/#contact" className="text-white/70 hover:text-white transition-colors text-sm font-medium uppercase tracking-wider" onClick={() => trackNavClick('contact')}>
               Contact
             </a>
+            <BookMeetingButton
+              location="header_desktop"
+              label="Book a Meeting"
+              className="bg-white/10 hover:bg-white/20 text-white font-semibold text-sm px-5 py-2.5 rounded-full transition-all duration-200 border border-white/20"
+            />
             <a
               href="/#contact"
               className="bg-amber-400 hover:bg-amber-300 text-navy-900 font-semibold text-sm px-5 py-2.5 rounded-full transition-all duration-200 hover:-translate-y-0.5"
@@ -126,7 +194,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-white/10 bg-navy-900/95 backdrop-blur-xl rounded-b-2xl shadow-xl">
+          <div className="md:hidden py-4 border-t border-white/10 bg-navy-900/95 backdrop-blur-xl rounded-b-2xl shadow-xl max-h-[80vh] overflow-y-auto">
             <div className="flex flex-col gap-1">
               <a href="/#how-it-works" className="text-white/70 hover:text-white transition-colors font-medium px-4 py-3 rounded-lg hover:bg-white/5" onClick={() => { setIsMenuOpen(false); trackNavClick('mobile_how_it_works'); }}>
                 How It Works
@@ -137,6 +205,19 @@ const Header = () => {
               <Link to="/blog" className="text-white/70 hover:text-white transition-colors font-medium px-4 py-3 rounded-lg hover:bg-white/5" onClick={() => { setIsMenuOpen(false); trackNavClick('mobile_blog'); }}>
                 Blog
               </Link>
+              <div className="px-4 py-2">
+                <p className="text-xs font-bold uppercase tracking-widest text-white/30 mb-1">Services</p>
+                {SERVICE_LINKS.map(({ to, label }) => (
+                  <Link
+                    key={to}
+                    to={to}
+                    className="block text-white/60 hover:text-amber-400 transition-colors text-sm py-2 pl-2"
+                    onClick={() => { setIsMenuOpen(false); trackNavClick(`mobile_service_${label.toLowerCase().replace(/ /g, '_')}`); }}
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </div>
               <div className="px-4 py-2">
                 <p className="text-xs font-bold uppercase tracking-widest text-white/30 mb-1">Sectors</p>
                 {SECTOR_LINKS.map(({ to, label }) => (
@@ -156,8 +237,13 @@ const Header = () => {
               <a href="/#contact" className="text-white/70 hover:text-white transition-colors font-medium px-4 py-3 rounded-lg hover:bg-white/5" onClick={() => { setIsMenuOpen(false); trackNavClick('mobile_contact'); }}>
                 Contact
               </a>
-              <div className="px-4 pt-2">
-                <a href="/#contact" className="block bg-amber-400 hover:bg-amber-300 text-navy-900 font-semibold text-center px-5 py-3 rounded-xl transition-all duration-200" onClick={() => trackCTAClick('get_started', 'header_mobile')}>
+              <div className="px-4 pt-2 flex flex-col gap-3">
+                <BookMeetingButton
+                  location="header_mobile"
+                  label="Book a Meeting"
+                  className="block w-full bg-white/10 hover:bg-white/20 text-white font-semibold text-center px-5 py-3 rounded-xl transition-all duration-200 border border-white/20"
+                />
+                <a href="/#contact" className="block bg-amber-400 hover:bg-amber-300 text-navy-900 font-semibold text-center px-5 py-3 rounded-xl transition-all duration-200" onClick={() => { setIsMenuOpen(false); trackCTAClick('get_started', 'header_mobile'); }}>
                   Get Started
                 </a>
               </div>

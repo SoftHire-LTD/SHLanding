@@ -1,5 +1,6 @@
 import { ArrowRight, CheckCircle } from 'lucide-react';
 import { trackCTAClick, trackNavClick } from '../lib/analytics';
+import BookMeetingButton from './BookMeetingButton';
 
 const Hero = () => {
   return (
@@ -73,6 +74,11 @@ const Hero = () => {
                 Start your journey
                 <ArrowRight className="h-4 w-4" />
               </a>
+              <BookMeetingButton
+                location="hero_homepage"
+                label="Book a free call"
+                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold text-base px-7 py-3.5 rounded-full transition-all duration-200 border border-white/20"
+              />
               <a
                 href="/#how-it-works"
                 className="inline-flex items-center gap-2 text-white/60 hover:text-white text-base font-medium transition-colors duration-200"

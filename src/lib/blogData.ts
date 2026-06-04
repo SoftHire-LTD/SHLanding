@@ -10,6 +10,13 @@ export interface FaqItem {
   answer: string;
 }
 
+/** A related service page shown at the bottom of blog articles. */
+export interface RelatedService {
+  path: string;
+  title: string;
+  description: string;
+}
+
 export interface BlogArticleMeta {
   slug: string;
   title: string;
@@ -20,8 +27,12 @@ export interface BlogArticleMeta {
   excerpt: string;
   ogImage: string;
   readingTime: number;
+  /** Taxonomy category shown as article badge and used for filtering. */
+  category: string;
   toc: TocSection[];
   related: string[];
+  /** Service pages surfaced at the bottom of the article. */
+  relatedServices: RelatedService[];
 }
 
 export const BLOG_ARTICLES: BlogArticleMeta[] = [
@@ -50,6 +61,19 @@ export const BLOG_ARTICLES: BlogArticleMeta[] = [
       { id: 'faq', title: 'Frequently Asked Questions' },
     ],
     related: ['why-sponsor-licences-get-revoked', 'home-office-compliance-visit-preparation'],
+    category: 'Sponsor Compliance',
+    relatedServices: [
+      {
+        path: '/sponsor-licence-application',
+        title: 'Sponsor Licence Application',
+        description: 'We manage your full sponsor licence application from eligibility check to Home Office approval.',
+      },
+      {
+        path: '/sponsor-licence-compliance',
+        title: 'Compliance Retainer',
+        description: 'Ongoing compliance management so your sponsor licence stays safe throughout the year.',
+      },
+    ],
   },
   {
     slug: 'why-sponsor-licences-get-revoked',
@@ -74,6 +98,19 @@ export const BLOG_ARTICLES: BlogArticleMeta[] = [
     related: [
       'sponsor-licence-suspended-what-happens',
       'home-office-compliance-visit-preparation',
+    ],
+    category: 'Sponsor Compliance',
+    relatedServices: [
+      {
+        path: '/sponsor-licence-compliance',
+        title: 'Compliance Retainer',
+        description: 'Ongoing compliance management to keep your sponsor licence safe and audit-ready.',
+      },
+      {
+        path: '/sponsor-licence-application',
+        title: 'Sponsor Licence Application',
+        description: 'We manage your full sponsor licence application from eligibility check to Home Office approval.',
+      },
     ],
   },
   {
@@ -102,6 +139,19 @@ export const BLOG_ARTICLES: BlogArticleMeta[] = [
     related: [
       'sponsor-licence-suspended-what-happens',
       'why-sponsor-licences-get-revoked',
+    ],
+    category: 'Sponsor Compliance',
+    relatedServices: [
+      {
+        path: '/sponsor-licence-compliance',
+        title: 'Compliance Retainer',
+        description: 'Let us manage your ongoing sponsor compliance so you are always audit-ready.',
+      },
+      {
+        path: '/sponsor-licence-checklist',
+        title: 'Sponsor Licence Checklist',
+        description: 'The complete pre-application and ongoing compliance checklist for UK sponsors.',
+      },
     ],
   },
 ];

@@ -119,6 +119,45 @@ export function trackFooterClick(label: string): void {
   });
 }
 
+/**
+ * Track a "Book assessment / free consultation" CTA click.
+ * Use this on every primary CTA that drives users toward a consultation or booking.
+ * @param location  e.g. 'hero_care_homes', 'header_desktop', 'blog_cta'
+ */
+export function trackBookAssessment(location: string): void {
+  trackEvent('book_assessment', {
+    event_category: 'conversion',
+    event_label: 'book_assessment',
+    click_location: location,
+  });
+}
+
+/** Track a Calendly popup being opened. */
+export function trackCalendlyOpen(location: string): void {
+  trackEvent('calendly_open', {
+    event_category: 'conversion',
+    event_label: 'book_meeting',
+    click_location: location,
+  });
+}
+
+/** Track a date/time slot being selected inside the Calendly widget. */
+export function trackCalendlyDateSelected(): void {
+  trackEvent('calendly_date_selected', {
+    event_category: 'conversion',
+    event_label: 'calendly_date_selected',
+  });
+}
+
+/** Track a meeting being successfully booked via Calendly. */
+export function trackCalendlyBooked(eventType?: string): void {
+  trackEvent('calendly_booked', {
+    event_category: 'conversion',
+    event_label: 'meeting_booked',
+    event_type: eventType ?? 'unknown',
+  });
+}
+
 /** Track a FAQ accordion item being opened (not closed). */
 export function trackFAQOpen(question: string, page: string): void {
   trackEvent('faq_open', {
