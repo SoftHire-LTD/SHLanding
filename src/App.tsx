@@ -104,8 +104,8 @@ function TrailingSlashRedirect() {
 const HomePage = () => (
   <>
     <SEO
-      title="UK Visa & Immigration Services | Student, Skilled Worker, Sponsor Licence | SoftHire"
-      description="IAA-regulated UK immigration experts. Fixed-fee Student, Graduate, Skilled Worker visas and Sponsor Licences. 97% success rate. Free consultation in 24 hours."
+      title="Sponsor Licence & Skilled Worker Compliance Support for UK Employers | SoftHire"
+      description="IAA-regulated sponsor licence applications, Skilled Worker visa support and compliance retainers for UK employers. Fixed fees. Book a free assessment."
       path="/"
     />
     <Hero />
