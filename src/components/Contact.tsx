@@ -64,13 +64,13 @@ const Contact = () => {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
           <div>
             <h2 className="text-white font-bold leading-tight tracking-tight" style={{ fontFamily: "'Syne', 'Inter', sans-serif", fontSize: 'clamp(1.6rem, 3vw, 2.4rem)' }}>
-              Ready to start your UK visa journey?
+              Ready to get your sponsor licence?
             </h2>
             <p className="text-white/60 mt-2 text-base">Free consultation. No commitment. Clear next steps in 24 hours.</p>
           </div>
           <div className="flex flex-wrap gap-3 flex-shrink-0">
-            <a href="#contact" className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-navy-900 font-semibold px-7 py-3.5 rounded-full transition-all duration-200 hover:-translate-y-0.5 whitespace-nowrap" style={{ color: '#0B1736' }} onClick={() => trackCTAClick('book_free_call', 'cta_strip')}>
-              Book a free call <ArrowRight className="h-4 w-4" />
+            <a href="#contact" className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-navy-900 font-semibold px-7 py-3.5 rounded-full transition-all duration-200 hover:-translate-y-0.5 whitespace-nowrap" style={{ color: '#0B1736' }} onClick={() => trackCTAClick('book_sponsor_assessment', 'cta_strip')}>
+              Book a sponsor licence assessment <ArrowRight className="h-4 w-4" />
             </a>
             <a href="https://wa.me/00447585198493" rel="noopener noreferrer" target="_blank" className="inline-flex items-center gap-2 bg-white/8 hover:bg-white/15 text-white border border-white/20 font-semibold px-7 py-3.5 rounded-full transition-all duration-200 hover:-translate-y-0.5 whitespace-nowrap" onClick={() => trackContactLinkClick('whatsapp')}>
               WhatsApp us

@@ -1,6 +1,5 @@
-import { ArrowRight, CheckCircle } from 'lucide-react';
-import { trackCTAClick, trackNavClick } from '../lib/analytics';
-import BookMeetingButton from './BookMeetingButton';
+import { ArrowRight, CheckCircle, ShieldCheck } from 'lucide-react';
+import { trackCTAClick } from '../lib/analytics';
 
 const Hero = () => {
   return (
@@ -32,70 +31,51 @@ const Hero = () => {
             {/* Eyebrow */}
             <p className="flex items-center gap-3 text-amber-400 text-sm font-semibold uppercase tracking-widest mb-6">
               <span className="block w-6 h-px bg-amber-400" aria-hidden="true" />
-              UK-Regulated Global Mobility
+              UK Employer Immigration Support
             </p>
 
-            <h1 id="hero-heading" className="font-bold text-white leading-tight tracking-tight mb-6" style={{ fontFamily: "'Syne', 'Inter', sans-serif", fontSize: 'clamp(2.8rem, 6vw, 5.5rem)' }}>
-              UK visas.<br />
-              Handled by <span className="text-amber-400">experts.</span><br />
-              Powered by <span className="text-teal-400">technology.</span>
+            <h1 id="hero-heading" className="font-bold text-white leading-tight tracking-tight mb-6" style={{ fontFamily: "'Syne', 'Inter', sans-serif", fontSize: 'clamp(2.2rem, 4.5vw, 4rem)' }}>
+              Sponsor licence and Skilled Worker compliance support for{' '}
+              <span className="text-amber-400">UK employers</span>
             </h1>
 
             <p className="text-lg text-white/70 leading-relaxed mb-8 max-w-xl font-light">
-              SoftHire is the UK's smartest immigration service — IAA-regulated visa support for international students, employers hiring global talent, and anyone navigating the UK system.
+              SoftHire helps UK businesses secure sponsor licences, manage Skilled Worker sponsorship, and stay audit-ready with fixed-fee immigration support and structured compliance workflows.
             </p>
 
-            {/* Yoshki Certified Partner */}
-            <div className="flex items-center gap-3 mb-8 bg-white/5 backdrop-blur-sm rounded-xl px-4 py-3 border border-white/10 w-fit">
-              <div style={{ width: '28px', flexShrink: 0 }}>
-                <div style={{ position: 'relative', paddingBottom: '152%', height: 0, overflow: 'hidden' }}>
-                  <iframe
-                    src="https://cdn2.yoshki.com/badgeframe?10"
-                    title="Yoshki Certified Partner Badge"
-                    style={{
-                      overflow: 'hidden', border: '0px', margin: '0px', padding: '0px',
-                      backgroundColor: 'transparent', top: '0px', left: '0px',
-                      width: '100%', height: '100%', position: 'absolute',
-                    }}
-                  />
-                </div>
-              </div>
-              <span className="text-white/80 text-sm font-medium">Yoshki Certified Partner</span>
-            </div>
-
             {/* CTAs */}
-            <div className="flex flex-wrap gap-4 mb-10">
+            <div className="flex flex-wrap gap-4 mb-8">
               <a
                 href="/#contact"
-                className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 text-navy-900 font-semibold text-base px-7 py-3.5 rounded-full transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl"
+                className="inline-flex items-center gap-2 bg-amber-400 hover:bg-amber-300 font-semibold text-base px-7 py-3.5 rounded-full transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl"
                 style={{ color: '#0B1736' }}
-                onClick={() => trackCTAClick('start_your_journey', 'hero')}
+                onClick={() => trackCTAClick('book_sponsor_licence_assessment', 'hero')}
               >
-                Start your journey
+                Book a sponsor licence assessment
                 <ArrowRight className="h-4 w-4" />
               </a>
-              <BookMeetingButton
-                location="hero_homepage"
-                label="Book a free call"
-                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold text-base px-7 py-3.5 rounded-full transition-all duration-200 border border-white/20"
-              />
               <a
-                href="/#how-it-works"
-                className="inline-flex items-center gap-2 text-white/60 hover:text-white text-base font-medium transition-colors duration-200"
-                onClick={() => trackNavClick('see_how_it_works_hero')}
+                href="/sponsor-licence-application"
+                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold text-base px-7 py-3.5 rounded-full transition-all duration-200 border border-white/20"
+                onClick={() => trackCTAClick('check_business_can_sponsor', 'hero')}
               >
-                <span className="w-7 h-7 rounded-full border border-white/30 flex items-center justify-center text-xs" aria-hidden="true">▶</span>
-                See how it works
+                Check if your business can sponsor workers
               </a>
+            </div>
+
+            {/* IAA trust line */}
+            <div className="flex items-center gap-3 mb-8">
+              <ShieldCheck className="h-5 w-5 text-teal-400 flex-shrink-0" aria-hidden="true" />
+              <span className="text-white/60 text-sm">IAA-regulated immigration advice</span>
             </div>
 
             {/* Trust badges */}
             <div className="flex flex-wrap gap-3">
               {[
-                'IAA Regulated',
-                'University Trusted',
+                'Sponsor Licence Applications',
+                'Skilled Worker Visas',
+                'Compliance Retainers',
                 'Fixed Fees',
-                'Student Specialists',
               ].map((badge) => (
                 <span
                   key={badge}
@@ -110,20 +90,20 @@ const Hero = () => {
 
           {/* Right: Stats panel */}
           <div className="hidden lg:flex flex-col gap-4 items-end">
-            {/* 97% badge */}
+            {/* IAA badge */}
             <div
-              className="text-center px-6 py-5 rounded-2xl text-navy-900 font-bold shadow-2xl"
-              style={{ background: 'linear-gradient(135deg, #E8A830, #D4920A)' }}
-              aria-label="97 percent UK visa success rate"
+              className="text-center px-6 py-5 rounded-2xl font-bold shadow-2xl"
+              style={{ background: 'linear-gradient(135deg, #E8A830, #D4920A)', color: '#0B1736' }}
+              aria-label="IAA regulated immigration advice"
             >
-              <span className="block text-4xl font-extrabold leading-none">97%</span>
-              <span className="text-sm mt-1 block opacity-80">Visa Success Rate</span>
+              <span className="block text-3xl font-extrabold leading-none">IAA</span>
+              <span className="text-sm mt-1 block opacity-80">Regulated Advice</span>
             </div>
 
             {[
-              { num: '2,400+', label: 'Students reached the UK with SoftHire' },
-              { num: '3 wks', label: 'Average time contact-to-submission' },
-              { num: 'IAA', label: 'UK Immigration Advice Authority regulated' },
+              { num: 'Fixed Fee', label: 'Transparent pricing — know your costs before you commit' },
+              { num: '24 hrs', label: 'Response commitment for all new enquiries' },
+              { num: '1st time', label: 'Applications prepared for first-time approval' },
             ].map(({ num, label }) => (
               <div
                 key={num}
@@ -134,16 +114,16 @@ const Hero = () => {
               </div>
             ))}
 
-            {/* Feature checklist */}
+            {/* Compliance checklist */}
             <div className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-5 backdrop-blur-sm mt-2">
-              <p className="text-white/60 text-xs uppercase tracking-wider mb-3 font-semibold">All Visa Types Supported</p>
+              <p className="text-white/60 text-xs uppercase tracking-wider mb-3 font-semibold">Employer Services</p>
               {[
-                'UK Student Visa',
-                'Graduate Visa',
-                'Skilled Worker Visa',
-                'Dependant Visa',
-                'Sponsor Licence',
+                'Sponsor Licence Application',
+                'Skilled Worker Visa Support',
+                'Certificate of Sponsorship',
+                'Right-to-Work Checks',
                 'Compliance Retainer',
+                'Home Office Audit Readiness',
               ].map((v) => (
                 <div key={v} className="flex items-center gap-2 text-white/70 text-sm py-1">
                   <CheckCircle className="h-4 w-4 text-teal-400 flex-shrink-0" />
