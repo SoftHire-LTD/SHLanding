@@ -151,7 +151,8 @@ function App() {
           <Route path="/blog/why-sponsor-licences-get-revoked" element={<WhySponsorLicencesRevoked />} />
           <Route path="/blog/home-office-compliance-visit-preparation" element={<ComplianceVisitPreparation />} />
           <Route path="/immigration-compliance" element={<ImmigrationCompliancePage />} />
-          <Route path="/sponsor-licence-care-homes" element={<SponsorLicenceCareHomesPage />} />
+          <Route path="/sponsor-licence-compliance-for-care-homes" element={<SponsorLicenceCareHomesPage />} />
+          <Route path="/sponsor-licence-care-homes" element={<Navigate to="/sponsor-licence-compliance-for-care-homes" replace />} />
           <Route path="/sponsor-licence-restaurants" element={<SponsorLicenceRestaurantsPage />} />
           <Route path="/sponsor-licence-tech-startups" element={<SponsorLicenceTechStartupsPage />} />
           <Route path="/sponsor-licence-universities" element={<SponsorLicenceUniversitiesPage />} />
