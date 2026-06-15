@@ -76,7 +76,7 @@ const Footer = () => {
             <h3 className="text-xs font-bold uppercase tracking-widest text-white mb-4">Sectors</h3>
             <ul className="flex flex-col gap-3">
               {[
-                { to: '/sponsor-licence-care-homes', label: 'Care Homes' },
+                { to: '/sponsor-licence-compliance-for-care-homes', label: 'Care Providers' },
                 { to: '/sponsor-licence-restaurants', label: 'Restaurants & Hospitality' },
                 { to: '/sponsor-licence-tech-startups', label: 'Tech Startups' },
                 { to: '/sponsor-licence-universities', label: 'Universities' },

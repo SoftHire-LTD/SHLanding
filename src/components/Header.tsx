@@ -5,7 +5,7 @@ import { trackNavClick, trackCTAClick } from '../lib/analytics';
 import BookMeetingButton from './BookMeetingButton';
 
 const SECTOR_LINKS = [
-  { to: '/sponsor-licence-care-homes', label: 'Care Homes' },
+  { to: '/sponsor-licence-compliance-for-care-homes', label: 'Care Providers' },
   { to: '/sponsor-licence-restaurants', label: 'Restaurants & Hospitality' },
   { to: '/sponsor-licence-tech-startups', label: 'Tech Startups' },
   { to: '/sponsor-licence-universities', label: 'Universities' },

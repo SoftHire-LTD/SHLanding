@@ -35,9 +35,9 @@ const industries = [
     href: '/sponsor-licence-tech-startups',
   },
   {
-    title: 'Care Homes',
-    desc: 'CQC registration, Health and Care Worker visas, and the highest Home Office audit risk of any sector. We know what inspectors look for.',
-    href: '/sponsor-licence-care-homes',
+    title: 'Care Providers',
+    desc: 'Sponsor licence compliance support for care providers managing sponsored workers, records and Home Office duties.',
+    href: '/sponsor-licence-compliance-for-care-homes',
   },
   {
     title: 'Construction',

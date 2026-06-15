@@ -19,6 +19,15 @@ const Contact = () => {
         { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...formData, ...getStoredUTMs() }) }
       );
       if (response.ok) {
+        const careLeadSource = sessionStorage.getItem('care_compliance_lead_source');
+        if (careLeadSource) {
+          trackEvent('care_contact_form_submit', {
+            event_category: 'form',
+            event_label: 'care_contact_form_submit',
+            click_location: careLeadSource,
+          });
+          sessionStorage.removeItem('care_compliance_lead_source');
+        }
         setMessageSent(true);
         setFormData({ name: '', email: '', companyName: '', message: '' });
         trackFormSubmit(true);
