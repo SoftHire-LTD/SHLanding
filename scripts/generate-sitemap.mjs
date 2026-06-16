@@ -25,6 +25,7 @@ const STATIC_ROUTES = [
   { path: '/immigration-compliance', priority: '0.8', changefreq: 'monthly' },
   { path: '/sponsor-licence-compliance-for-care-homes', priority: '0.8', changefreq: 'monthly' },
   { path: '/sponsor-licence-care-homes', priority: '0.4', changefreq: 'monthly' },
+  { path: '/sponsor-licence-for-construction-companies', priority: '0.8', changefreq: 'monthly' },
   { path: '/sponsor-licence-restaurants', priority: '0.8', changefreq: 'monthly' },
   { path: '/sponsor-licence-tech-startups', priority: '0.8', changefreq: 'monthly' },
   { path: '/sponsor-licence-universities', priority: '0.8', changefreq: 'monthly' },

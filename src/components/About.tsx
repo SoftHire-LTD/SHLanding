@@ -40,9 +40,9 @@ const industries = [
     href: '/sponsor-licence-compliance-for-care-homes',
   },
   {
-    title: 'Construction',
-    desc: 'Project-based contracts, mobile workforces and high turnover create specific sponsorship risks. We help you stay compliant across every site.',
-    href: '/#contact',
+    title: 'Construction Companies',
+    desc: 'Sponsor licence support for construction employers checking role eligibility, SOC codes, salary thresholds and site management.',
+    href: '/sponsor-licence-for-construction-companies',
   },
   {
     title: 'Foreign Companies Expanding in the UK',
