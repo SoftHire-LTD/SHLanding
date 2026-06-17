@@ -77,9 +77,10 @@ const Footer = () => {
             <ul className="flex flex-col gap-3">
               {[
                 { to: '/sponsor-licence-compliance-for-care-homes', label: 'Care Providers' },
+                { to: '/sponsor-licence-for-construction-companies', label: 'Construction Companies' },
                 { to: '/sponsor-licence-restaurants', label: 'Restaurants & Hospitality' },
                 { to: '/sponsor-licence-tech-startups', label: 'Tech Startups' },
-                { to: '/sponsor-licence-universities', label: 'Universities' },
+                { to: '/immigration-compliance-for-education-providers', label: 'Education Providers' },
                 { to: '/immigration-compliance', label: 'Recruitment Agencies' },
               ].map(({ to, label }) => (
                 <li key={to}>

@@ -17,6 +17,7 @@ import WhySponsorLicencesRevoked from './components/pages/blog/WhySponsorLicence
 import ComplianceVisitPreparation from './components/pages/blog/ComplianceVisitPreparation';
 import ImmigrationCompliancePage from './components/pages/ImmigrationCompliancePage';
 import SponsorLicenceCareHomesPage from './components/pages/SponsorLicenceCareHomesPage';
+import SponsorLicenceConstructionPage from './components/pages/SponsorLicenceConstructionPage';
 import SponsorLicenceRestaurantsPage from './components/pages/SponsorLicenceRestaurantsPage';
 import SponsorLicenceTechStartupsPage from './components/pages/SponsorLicenceTechStartupsPage';
 import SponsorLicenceUniversitiesPage from './components/pages/SponsorLicenceUniversitiesPage';
@@ -153,9 +154,11 @@ function App() {
           <Route path="/immigration-compliance" element={<ImmigrationCompliancePage />} />
           <Route path="/sponsor-licence-compliance-for-care-homes" element={<SponsorLicenceCareHomesPage />} />
           <Route path="/sponsor-licence-care-homes" element={<Navigate to="/sponsor-licence-compliance-for-care-homes" replace />} />
+          <Route path="/sponsor-licence-for-construction-companies" element={<SponsorLicenceConstructionPage />} />
+          <Route path="/immigration-compliance-for-education-providers" element={<SponsorLicenceUniversitiesPage />} />
+          <Route path="/sponsor-licence-universities" element={<Navigate to="/immigration-compliance-for-education-providers" replace />} />
           <Route path="/sponsor-licence-restaurants" element={<SponsorLicenceRestaurantsPage />} />
           <Route path="/sponsor-licence-tech-startups" element={<SponsorLicenceTechStartupsPage />} />
-          <Route path="/sponsor-licence-universities" element={<SponsorLicenceUniversitiesPage />} />
           <Route path="/sponsor-licence-application" element={<SponsorLicenceApplicationPage />} />
           <Route path="/skilled-worker-visa-employer" element={<SkilledWorkerEmployerPage />} />
           <Route path="/sponsor-licence-compliance" element={<SponsorLicenceCompliancePage />} />

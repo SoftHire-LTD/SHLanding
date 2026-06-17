@@ -20,6 +20,8 @@ const Contact = () => {
       );
       if (response.ok) {
         const careLeadSource = sessionStorage.getItem('care_compliance_lead_source');
+        const constructionLeadSource = sessionStorage.getItem('construction_lead_source');
+        const educationLeadSource = sessionStorage.getItem('education_compliance_lead_source');
         if (careLeadSource) {
           trackEvent('care_contact_form_submit', {
             event_category: 'form',
@@ -27,6 +29,22 @@ const Contact = () => {
             click_location: careLeadSource,
           });
           sessionStorage.removeItem('care_compliance_lead_source');
+        }
+        if (constructionLeadSource) {
+          trackEvent('construction_contact_form_submit', {
+            event_category: 'form',
+            event_label: 'construction_contact_form_submit',
+            click_location: constructionLeadSource,
+          });
+          sessionStorage.removeItem('construction_lead_source');
+        }
+        if (educationLeadSource) {
+          trackEvent('education_contact_form_submit', {
+            event_category: 'form',
+            event_label: 'education_contact_form_submit',
+            click_location: educationLeadSource,
+          });
+          sessionStorage.removeItem('education_compliance_lead_source');
         }
         setMessageSent(true);
         setFormData({ name: '', email: '', companyName: '', message: '' });

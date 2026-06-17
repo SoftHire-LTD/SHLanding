@@ -40,9 +40,9 @@ const industries = [
     href: '/sponsor-licence-compliance-for-care-homes',
   },
   {
-    title: 'Construction',
-    desc: 'Project-based contracts, mobile workforces and high turnover create specific sponsorship risks. We help you stay compliant across every site.',
-    href: '/#contact',
+    title: 'Construction Companies',
+    desc: 'Sponsor licence support for construction employers checking role eligibility, SOC codes, salary thresholds and site management.',
+    href: '/sponsor-licence-for-construction-companies',
   },
   {
     title: 'Foreign Companies Expanding in the UK',
@@ -51,8 +51,8 @@ const industries = [
   },
   {
     title: 'Education Providers',
-    desc: 'Education providers managing international students, sponsored staff, visa records and immigration compliance responsibilities. We manage both compliance regimes so your institution stays audit-ready.',
-    href: '/sponsor-licence-universities',
+    desc: 'Immigration compliance support for education providers managing international students, sponsored staff, visa records and Home Office duties.',
+    href: '/immigration-compliance-for-education-providers',
   },
 ];
 
