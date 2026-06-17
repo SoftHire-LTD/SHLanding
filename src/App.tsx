@@ -155,9 +155,10 @@ function App() {
           <Route path="/sponsor-licence-compliance-for-care-homes" element={<SponsorLicenceCareHomesPage />} />
           <Route path="/sponsor-licence-care-homes" element={<Navigate to="/sponsor-licence-compliance-for-care-homes" replace />} />
           <Route path="/sponsor-licence-for-construction-companies" element={<SponsorLicenceConstructionPage />} />
+          <Route path="/immigration-compliance-for-education-providers" element={<SponsorLicenceUniversitiesPage />} />
+          <Route path="/sponsor-licence-universities" element={<Navigate to="/immigration-compliance-for-education-providers" replace />} />
           <Route path="/sponsor-licence-restaurants" element={<SponsorLicenceRestaurantsPage />} />
           <Route path="/sponsor-licence-tech-startups" element={<SponsorLicenceTechStartupsPage />} />
-          <Route path="/sponsor-licence-universities" element={<SponsorLicenceUniversitiesPage />} />
           <Route path="/sponsor-licence-application" element={<SponsorLicenceApplicationPage />} />
           <Route path="/skilled-worker-visa-employer" element={<SkilledWorkerEmployerPage />} />
           <Route path="/sponsor-licence-compliance" element={<SponsorLicenceCompliancePage />} />

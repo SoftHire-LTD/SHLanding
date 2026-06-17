@@ -51,8 +51,8 @@ const industries = [
   },
   {
     title: 'Education Providers',
-    desc: 'Education providers managing international students, sponsored staff, visa records and immigration compliance responsibilities. We manage both compliance regimes so your institution stays audit-ready.',
-    href: '/sponsor-licence-universities',
+    desc: 'Immigration compliance support for education providers managing international students, sponsored staff, visa records and Home Office duties.',
+    href: '/immigration-compliance-for-education-providers',
   },
 ];
 
