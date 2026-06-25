@@ -120,7 +120,7 @@ export default function SponsorLicenceCostPage() {
                           <div style={{ color: C.cream, fontWeight: 600, fontSize: '0.9rem' }}>{label}</div>
                           <div style={{ color: C.textMuted, fontSize: '0.8rem' }}>{note}</div>
                         </div>
-                        <div style={{ color: C.gold, fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: '1.05rem', textAlign: 'right' }}>{amount}</div>
+                        <div style={{ color: C.gold, fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: '1.05rem', textAlign: 'right', display: 'none' }}>{amount}</div>
                       </div>
                     ))}
                   </div>

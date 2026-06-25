@@ -254,10 +254,10 @@ const About = () => {
                   <span className="inline-block bg-amber-400 text-[#0B1736] text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4 w-fit">Most popular</span>
                 )}
                 <p className="text-amber-400 text-xs font-semibold uppercase tracking-wider mb-2">{card.title}</p>
-                <div className="flex items-end gap-1 mb-1">
+                <div className="flex items-end gap-1 mb-1 hidden">
                   <span className="text-white font-extrabold text-3xl leading-none" style={{ fontFamily: "'Syne', sans-serif" }}>{card.price}</span>
                 </div>
-                <p className="text-white/50 text-sm mb-6">{card.unit}</p>
+                <p className="text-white/50 text-sm mb-6 hidden">{card.unit}</p>
                 <ul className="flex flex-col gap-2.5 flex-grow mb-7">
                   {card.items.map((item) => (
                     <li key={item} className="flex items-start gap-2.5 text-white/65 text-sm">
