@@ -135,6 +135,17 @@ const Footer = () => {
             Registered in England &amp; Wales · IAA Regulated · Immigration advice is regulated by the Immigration Advice Authority
           </p>
         </div>
+
+        <div className="mt-6 border-t border-white/10 pt-6 flex justify-center">
+          <div className="flex items-center gap-4 rounded-full border border-white/10 bg-white/5 px-5 py-3">
+            <span className="text-xs font-semibold uppercase tracking-widest text-white/55">Backed by</span>
+            <img
+              src="/SFC%20Logo.webp"
+              alt="SFC Capital"
+              className="h-7 w-auto rounded-sm bg-white px-2 py-1"
+            />
+          </div>
+        </div>
       </div>
     </footer>
   );
